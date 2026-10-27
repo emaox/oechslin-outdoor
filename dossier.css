@@ -1,0 +1,479 @@
+/* ==========================================================
+   DOSSIER — stili condivisi da tutte le pagine di dettaglio
+   spedizione (es. expeditions/ox-001-atlas-crossing/index.html).
+   Usa i token definiti in style.css (deve essere caricato
+   PRIMA di questo file).
+
+   Sezioni: glitch-swap, hero, stats, spirito, countdown, mappa+
+   percorso (Leaflet), profilo altimetrico, galleria, informazioni
+   pratiche (voli/documenti/livello/pagamento/cancellazione —
+   contenuto placeholder marcato "DA CONFERMARE" nell'HTML finché
+   l'utente non conferma i dati reali), quota, equipaggiamento
+   (riusa .notes-grid/.note-card di style.css), form candidatura.
+========================================================== */
+
+/* GLITCH SWAP — alterna testo IT ⇄ AR ogni 5s con un piccolo glitch
+   (vedi initGlitchSwap in dossier.js). Applicabile a qualsiasi elemento
+   con classe glitch-swap + data-text-it/data-text-ar/data-text. */
+.glitch-swap{ position:relative; transition:opacity 0.15s ease; }
+.glitch-swap.glitch-fade{ opacity:0; }
+.glitch-swap.is-arabic{
+  font-family:'Cairo', sans-serif !important;
+  letter-spacing:0 !important;
+  font-weight:800 !important;
+  direction:rtl;
+  unicode-bidi:isolate;
+}
+.glitch-swap.glitching{ animation:glitchSkew 0.4s linear; }
+.glitch-swap.glitching::before,
+.glitch-swap.glitching::after{
+  content:attr(data-text);
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  overflow:hidden; pointer-events:none;
+}
+.glitch-swap.glitching::before{
+  color:var(--yellow); opacity:0.7;
+  clip-path:polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  animation:glitchTop 0.4s linear;
+}
+.glitch-swap.glitching::after{
+  color:var(--azure); opacity:0.7;
+  clip-path:polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  animation:glitchBottom 0.4s linear;
+}
+@keyframes glitchSkew{
+  0%{ transform:skewX(0deg); } 20%{ transform:skewX(3deg); } 40%{ transform:skewX(-3deg); }
+  60%{ transform:skewX(2deg); } 80%{ transform:skewX(-2deg); } 100%{ transform:skewX(0deg); }
+}
+@keyframes glitchTop{
+  0%{ transform:translate(0,0); } 20%{ transform:translate(-5px,-2px); } 40%{ transform:translate(4px,2px); }
+  60%{ transform:translate(-3px,1px); } 80%{ transform:translate(3px,-1px); } 100%{ transform:translate(0,0); }
+}
+@keyframes glitchBottom{
+  0%{ transform:translate(0,0); } 20%{ transform:translate(5px,2px); } 40%{ transform:translate(-4px,-2px); }
+  60%{ transform:translate(3px,-1px); } 80%{ transform:translate(-3px,1px); } 100%{ transform:translate(0,0); }
+}
+@media (prefers-reduced-motion: reduce){
+  .glitch-swap.glitching, .glitch-swap.glitching::before, .glitch-swap.glitching::after{ animation:none; }
+}
+
+.dossier-hero{
+  position:relative;
+  min-height:78vh;
+  display:flex;
+  align-items:flex-end;
+  background-size:cover;
+  background-position:center;
+  padding:100px 20px 48px;
+}
+.dossier-hero::before{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,42,74,0.35) 0%, rgba(10,42,74,0.25) 40%, rgba(10,42,74,0.92) 100%);
+}
+.dossier-hero-content{
+  position:relative; z-index:1;
+  color:var(--off-white);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.dossier-hero-content .exp-code{ color:var(--yellow); }
+.dossier-hero-content h1{
+  font-size:clamp(30px, 7vw, 52px);
+  font-weight:600;
+  letter-spacing:0.02em;
+}
+.dossier-hero-sub{ opacity:0.75; }
+
+/* variante senza foto (spedizione ancora in fase di sopralluogo):
+   nessuna immagine finta al posto di una vera, solo un fondo scuro
+   con un accenno di profondità, stesso registro del resto del sito. */
+.dossier-hero--no-photo{
+  background-image:none;
+  background-color:var(--deep-blue);
+  background-image:radial-gradient(ellipse 120% 90% at 50% 15%, rgba(62,130,196,0.28), transparent 65%);
+}
+.dossier-hero--no-photo::before{ background:none; }
+.dossier-hero-planning-tag{
+  align-self:flex-start;
+  font-family:var(--mono); font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--off-white); opacity:0.8;
+  border:1px solid rgba(247,246,242,0.35); border-radius:20px; padding:5px 12px;
+  margin-bottom:4px;
+}
+
+.dossier-stats{ padding:40px 20px; border-top:1px solid var(--line); }
+.dossier-stats-row{
+  max-width:900px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:0;
+}
+.dossier-stat{
+  flex:1 1 100px;
+  text-align:center;
+  padding:0 18px;
+  border-left:1px solid var(--line);
+}
+.dossier-stat:first-child{ border-left:none; }
+.dossier-stat strong{
+  display:block;
+  font-family:var(--mono);
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:4px;
+}
+.dossier-stat span{
+  font-size:10px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  opacity:0.55;
+}
+
+.dossier-spirit{ padding:56px 20px; border-top:1px solid var(--line); }
+
+.dossier-countdown{
+  padding:32px 20px 40px;
+  text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:16px;
+}
+.dossier-countdown-label{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; opacity:0.55;
+}
+.countdown{ display:flex; gap:10px; }
+.countdown-card{
+  min-width:56px;
+  border:1px solid var(--line-strong);
+  border-radius:10px;
+  padding:10px 6px;
+  display:flex; flex-direction:column; align-items:center; gap:2px;
+}
+.countdown-card strong{ font-family:var(--mono); font-size:19px; font-weight:700; }
+.countdown-card span{ font-size:9px; letter-spacing:0.08em; text-transform:uppercase; opacity:0.55; }
+.countdown--compact .countdown-card{ min-width:44px; padding:7px 4px; }
+.countdown--compact .countdown-card strong{ font-size:15px; }
+.dossier-alert-banner-wrap{ padding:0 20px; text-align:center; }
+.dossier-alert-banner{
+  display:inline-block;
+  max-width:720px; width:100%;
+  margin:0 auto 40px;
+  background:#c0392b; color:var(--off-white);
+  border-radius:12px; padding:16px 22px;
+  font-size:14px; font-weight:600; text-decoration:none;
+  transition:opacity 0.2s ease;
+}
+.dossier-alert-banner:hover{ opacity:0.88; }
+
+.dossier-cta-banner{
+  max-width:720px; margin:0 auto 32px;
+  background:var(--deep-blue); color:var(--off-white);
+  border-radius:12px; padding:18px 22px;
+  display:flex; flex-direction:column; gap:4px;
+  text-align:center;
+}
+.dossier-cta-banner span{ font-family:var(--mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase; opacity:0.6; }
+.dossier-cta-banner strong{ font-size:17px; font-weight:600; }
+
+.dossier-route{ padding:56px 20px 70px; border-top:1px solid var(--line); }
+/* mobile/default: niente grid a righe separate — mappa e card sono semplici
+   blocchi impilati, così la mappa sticky può restare "agganciata" mentre
+   le card scorrono sotto (stesso principio di un header sticky classico).
+   In CSS Grid con righe auto la mappa si sbloccherebbe subito perché la
+   sua riga sarebbe alta solo quanto lei stessa. */
+.route-layout{
+  max-width:1080px;
+  margin:0 auto;
+  display:block;
+}
+.route-map-col{
+  position:sticky;
+  top:76px;
+  height:190px;
+  z-index:5;
+  margin-bottom:20px;
+}
+#boundedMap{
+  width:100%;
+  height:100%;
+  border-radius:12px;
+  border:1px solid var(--line-strong);
+  background:var(--deep-blue);
+}
+.map-hud{ position:absolute; inset:0; pointer-events:none; }
+.map-hud .boot-corner{ border-color:rgba(247,246,242,0.6); }
+.map-hud-readout{
+  position:absolute; bottom:14px; left:14px;
+  background:rgba(10,42,74,0.75);
+  color:var(--off-white);
+  border-radius:8px;
+  padding:8px 12px;
+  font-family:var(--mono);
+}
+.map-hud-readout .boot-hud-label{ color:var(--off-white); }
+.map-hud-value{ font-size:11px; font-weight:600; letter-spacing:0.03em; margin-bottom:2px; }
+.map-hud-sub{ font-size:9.5px; opacity:0.7; display:flex; gap:8px; }
+/* solo la tappa attiva mostra il nome (vedi gestisciMappa in dossier.js) */
+:root .map-tooltip{
+  border:none; font-family:var(--mono); font-size:10.5px; font-weight:700; letter-spacing:0.02em;
+  padding:5px 11px; border-radius:20px;
+}
+.map-tooltip::before{ display:none; }
+:root .map-tooltip--active{ background:var(--yellow); color:var(--deep-blue); }
+
+.route-preview{
+  max-width:1080px; margin:0 auto 28px;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:8px 10px;
+}
+.route-preview-item{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:0.02em;
+  color:var(--deep-blue); opacity:0.55;
+  border:1px solid var(--line-strong); border-radius:20px; padding:5px 12px;
+}
+
+/* mobile/default: lista semplice, nessun scroll-jacking */
+.route-cards-col{
+  display:flex; flex-direction:column; gap:14px;
+  max-width:640px; margin:0 auto;
+}
+.day-card{ display:flex; justify-content:center; }
+.route-card{
+  width:100%;
+  background:var(--off-white);
+  border:1px solid var(--line-strong);
+  border-radius:12px;
+  padding:20px 22px;
+  box-shadow:0 4px 14px rgba(10,42,74,0.04);
+  opacity:0.45;
+  transform:translateY(10px);
+  transition:opacity 0.45s ease, transform 0.45s ease;
+}
+.day-card.active .route-card{ opacity:1; transform:translateY(0); border-color:var(--azure); }
+.route-dot{
+  font-family:var(--mono); font-size:13px; font-weight:700; color:var(--azure);
+  opacity:0.7;
+}
+.route-content{ margin-top:6px; }
+.route-content-head{
+  display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px;
+  margin-bottom:8px;
+}
+.route-content-head h3{ font-size:19px; font-weight:600; }
+.route-badge{
+  font-family:var(--mono); font-size:11px; letter-spacing:0.03em; color:var(--azure); white-space:nowrap;
+}
+.route-stats{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+.route-stat{
+  font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:0.02em;
+  padding:4px 11px; border-radius:20px; white-space:nowrap;
+}
+.route-stat--km{ background:rgba(62,130,196,0.1); color:var(--azure); }
+.route-stat--elevation{ background:rgba(232,185,77,0.18); color:#8a6314; }
+.route-content p{ font-size:14px; line-height:1.65; opacity:0.75; }
+.route-scroll-hint{
+  display:block;
+  font-family:var(--mono); font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;
+  opacity:0.4; margin-top:10px;
+}
+
+/* desktop: mappa sticky a piena vista + una tappa a schermo per volta,
+   come nel sito sorgente della spedizione (scroll normale di pagina,
+   non un riquadro con scroll interno) */
+@media (min-width:860px){
+  html{ scroll-snap-type:y proximity; }
+  .route-layout{ display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+  .route-map-col{ position:sticky; top:100px; height:70vh; margin-bottom:0; }
+  .route-cards-col{ max-width:none; gap:0; }
+  .day-card{
+    min-height:88vh;
+    align-items:center;
+    scroll-snap-align:center;
+  }
+  .route-card{ max-width:420px; padding:30px 32px; box-shadow:0 16px 36px rgba(10,42,74,0.08); }
+}
+
+.elevation-block{
+  max-width:1080px; margin:48px auto 0;
+  border:1px solid var(--line-strong); border-radius:12px;
+  padding:20px 20px 12px;
+}
+.elevation-svg{ width:100%; height:auto; display:block; margin-top:10px; }
+.elevation-baseline{ stroke:var(--line-strong); stroke-width:1; }
+.elevation-area{ fill:rgba(62,130,196,0.12); stroke:none; }
+.elevation-line{ fill:none; stroke:var(--azure); stroke-width:1.6; stroke-linejoin:round; }
+.elevation-label{ font-family:var(--mono); }
+.elevation-label--value{ font-size:8px; font-weight:700; fill:#8a6314; }
+.elevation-label--step{ font-size:8.5px; font-weight:700; fill:var(--deep-blue); opacity:0.65; }
+.elevation-label--km{ font-size:7.5px; fill:var(--azure); opacity:0.8; }
+
+/* indicatore tappa attiva — spostato da updateElevationIndicator() in
+   dossier.js, in sincronia con lo scroll delle .day-card (stesso momento
+   in cui si aggiorna il marker attivo sulla mappa). cx/cy in transizione
+   invece di scattare: l'indicatore scivola da un punto al successivo. */
+.elevation-indicator,
+.elevation-indicator-halo{
+  transition:cx 0.5s ease-out, cy 0.5s ease-out;
+}
+.elevation-indicator{
+  fill:var(--yellow);
+  stroke:var(--off-white);
+  stroke-width:1.5;
+}
+.elevation-indicator-halo{
+  fill:var(--yellow);
+  opacity:0.35;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:elevationPulse 1.8s ease-in-out infinite;
+}
+@keyframes elevationPulse{
+  0%, 100%{ opacity:0.35; transform:scale(1); }
+  50%{ opacity:0.1; transform:scale(1.7); }
+}
+
+.dossier-gallery{ padding:56px 20px 70px; border-top:1px solid var(--line); }
+.gallery-strip{
+  max-width:1000px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.gallery-strip img{
+  width:100%; height:220px; object-fit:cover; border-radius:12px; display:block;
+}
+
+.dossier-back{ padding:0 20px 70px; text-align:center; }
+.dossier-back-link{
+  font-size:12.5px; font-weight:600; color:var(--deep-blue); text-decoration:none;
+  border-bottom:1px solid var(--line-strong); padding-bottom:2px;
+}
+.dossier-back-link:hover{ border-bottom-color:var(--azure); }
+
+/* ---- informazioni pratiche (voli, documenti, livello, pagamento, cancellazione) ---- */
+.dossier-trust{ padding:56px 20px 70px; border-top:1px solid var(--line); }
+.trust-grid{
+  max-width:900px; margin:0 auto;
+  display:grid; grid-template-columns:1fr; gap:16px;
+}
+.trust-card{
+  border:1px solid var(--line-strong);
+  border-radius:12px;
+  padding:22px 24px;
+  box-shadow:0 4px 18px rgba(10,42,74,0.05);
+}
+.trust-card-tag{
+  display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--azure); margin-bottom:10px;
+}
+.trust-card p{ font-size:13.5px; line-height:1.7; opacity:0.8; }
+.trust-source{ display:block; margin-top:10px; font-size:10px; opacity:0.5; }
+@media (min-width:700px){
+  .trust-grid{ grid-template-columns:1fr 1fr; }
+}
+
+/* ---- quota ---- */
+.dossier-quota{ padding:56px 20px 70px; border-top:1px solid var(--line); }
+.quota-price-row{
+  max-width:720px; margin:0 auto 40px;
+  display:grid; grid-template-columns:1fr; gap:16px;
+}
+.quota-card{
+  border:1px solid var(--line-strong);
+  border-radius:12px;
+  padding:24px;
+  box-shadow:0 4px 18px rgba(10,42,74,0.05);
+}
+.quota-card--eb{ border-color:var(--yellow); background:rgba(232,185,77,0.06); }
+.quota-card-head{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
+.quota-badge{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--deep-blue); background:var(--yellow); border-radius:20px; padding:4px 10px;
+}
+.quota-card-note{ font-size:11.5px; opacity:0.6; }
+.quota-amount{ display:block; font-family:var(--mono); font-size:30px; font-weight:700; margin-bottom:8px; }
+.quota-card p{ font-size:13px; line-height:1.55; opacity:0.75; margin-bottom:14px; }
+.quota-card .countdown{ justify-content:center; }
+
+.quota-accordions{ max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+.accordion{ border:1px solid var(--line-strong); border-radius:12px; overflow:hidden; }
+.accordion-trigger{
+  width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+  background:none; border:none; cursor:pointer; padding:16px 20px;
+  font-size:13.5px; font-weight:600; color:var(--deep-blue); text-align:left;
+}
+.accordion-chevron{ opacity:0.5; transition:transform 0.25s ease; }
+.accordion-trigger[aria-expanded="true"] .accordion-chevron{ transform:rotate(180deg); }
+.accordion-panel{ padding:0 20px 18px; }
+.quota-list{ list-style:none; display:flex; flex-direction:column; gap:9px; }
+.quota-list li{
+  font-size:13px; line-height:1.5; opacity:0.75; padding-left:16px; position:relative;
+}
+.quota-list li::before{
+  content:'—'; position:absolute; left:0; opacity:0.5;
+}
+
+/* ---- equipaggiamento (riusa .notes-grid/.note-card già definite in style.css) ---- */
+.dossier-gear{ padding:56px 20px 70px; border-top:1px solid var(--line); }
+.gear-card{ text-align:center; padding:32px 24px; }
+.gear-icon{ display:block; width:34px; height:34px; margin:0 auto 16px; color:var(--azure); }
+.gear-card .note-tag{ display:block; }
+
+/* ---- form ---- */
+.dossier-form{ padding:56px 20px 80px; border-top:1px solid var(--line); }
+.dossier-form-grid{
+  max-width:720px; margin:0 auto;
+  display:grid; grid-template-columns:1fr; gap:16px;
+}
+.form-group.full{ grid-column:1 / -1; }
+/* honeypot: fuori schermo, non display:none/visibility:hidden — quelle le
+   riconoscono facilmente anche i bot semplici; questa resta un campo reale
+   con dimensioni reali, solo spostato fuori dall'area visibile. */
+.hp-field{
+  position:absolute;
+  left:-9999px;
+  width:1px; height:1px;
+  overflow:hidden;
+}
+.form-consent{ padding-top:2px; }
+.consent-label{
+  display:flex; align-items:flex-start; gap:10px;
+  font-family:var(--sans); font-size:13px; line-height:1.5; color:var(--deep-blue); opacity:0.85;
+  cursor:pointer;
+}
+.consent-label input[type="checkbox"]{
+  flex:none; width:17px; height:17px; margin-top:1px;
+  accent-color:var(--azure);
+  cursor:pointer;
+}
+.consent-label a{ color:var(--azure); text-decoration:underline; text-underline-offset:2px; }
+.form-group label{ display:block; font-size:11.5px; font-weight:600; letter-spacing:0.03em; margin-bottom:6px; opacity:0.75; }
+.form-group input, .form-group select, .form-group textarea{
+  width:100%; font-family:var(--sans); font-size:13.5px; color:var(--deep-blue);
+  border:1px solid var(--line-strong); border-radius:8px; padding:11px 12px; background:var(--off-white);
+}
+.form-group textarea{ resize:vertical; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{
+  outline:2px solid var(--azure); outline-offset:1px;
+}
+.form-actions{ grid-column:1 / -1; }
+.btn-primary{
+  font-family:var(--sans); font-size:13.5px; font-weight:600; color:var(--off-white);
+  background:var(--deep-blue); border:none; border-radius:8px; padding:13px 26px; cursor:pointer;
+  transition:opacity 0.2s ease;
+}
+.btn-primary:hover{ opacity:0.85; }
+.btn-primary:disabled{ opacity:0.6; cursor:default; }
+.form-feedback{ grid-column:1 / -1; font-size:12.5px; }
+.form-feedback.error{ color:#c0392b; }
+.form-feedback.success{ color:#27ae60; }
+
+@media (min-width:700px){
+  .gallery-strip{ grid-template-columns:repeat(4, 1fr); }
+  .gallery-strip img{ height:170px; }
+  .dossier-form-grid{ grid-template-columns:1fr 1fr; }
+  .quota-price-row{ grid-template-columns:1fr 1fr; align-items:start; }
+}
+

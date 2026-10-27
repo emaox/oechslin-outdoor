@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Oechslin Outdoor</title>
+<meta name="description" content="Informativa sulla privacy di Oechslin Outdoor.">
+<meta name="robots" content="noindex">
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<link rel="canonical" href="https://oechslinoutdoor.com/privacy.html">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oechslinoutdoor.com/privacy.html">
+<meta property="og:title" content="Privacy Policy — Oechslin Outdoor">
+<meta property="og:description" content="Informativa sulla privacy di Oechslin Outdoor.">
+<meta property="og:image" content="https://oechslinoutdoor.com/og-image.png">
+
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="topbar-mark">OX</a>
+
+  <nav class="main-nav" id="mainNav">
+    <a href="index.html#experiences">Experiences</a>
+    <a href="index.html#map">Mappa</a>
+    <a href="index.html#field-notes">Field Notes</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<section class="about-section" style="padding-top:120px;">
+  <div class="about-inner" style="max-width:640px; text-align:left;">
+    <span class="eyebrow">Informativa</span>
+    <h2>Privacy Policy</h2>
+
+    <p style="margin-bottom:20px;">
+      Questa informativa descrive come vengono trattati i dati personali di chi visita questo sito o invia una candidatura per una spedizione, ai sensi del Regolamento (UE) 2016/679 (GDPR).
+    </p>
+
+    <p style="margin-bottom:20px;">
+      <strong>Titolare del trattamento</strong><br>
+      <!-- TODO: sostituire con ragione sociale/nome, indirizzo e P.IVA definitivi non appena formalizzata l'attività -->
+      Emanuele Oechslin — Oechslin Outdoor. Per qualsiasi richiesta relativa ai tuoi dati, scrivi a <a href="mailto:info@oechslinoutdoor.com">info@oechslinoutdoor.com</a>.
+    </p>
+
+    <p style="margin-bottom:20px;">
+      <strong>Quali dati raccolgo</strong><br>
+      Attraverso il form di candidatura raccolgo nome, cognome, età, telefono, email e le informazioni che scegli di inserire su esperienza outdoor e motivazione. Non raccolgo altri dati personali attraverso il sito: non utilizzo cookie di profilazione né strumenti di tracciamento di terze parti. L'unico dato tecnico salvato localmente sul tuo dispositivo è un piccolo indicatore (sessionStorage) che ricorda se hai già visto l'animazione di apertura del sito, cancellato automaticamente alla chiusura del browser — non è un cookie e non viene condiviso con nessuno.
+    </p>
+
+    <p style="margin-bottom:20px;">
+      <strong>Perché li raccolgo (finalità e base giuridica)</strong><br>
+      Utilizzo i tuoi dati esclusivamente per valutare la tua candidatura a una spedizione e per ricontattarti in merito, sulla base del tuo consenso esplicito (art. 6.1.a GDPR), espresso tramite la checkbox al momento dell'invio del form. Se la candidatura va a buon fine, gli stessi dati sono trattati anche per l'esecuzione di misure precontrattuali e, successivamente, del contratto di viaggio (art. 6.1.b GDPR).
+    </p>
+
+    <p style="margin-bottom:20px;">
+      <strong>Con chi condivido i dati</strong><br>
+      Il form invia i dati a Google (tramite Google Apps Script/Google Sheets), utilizzato come strumento tecnico di raccolta e gestione delle candidature. Google può trattare ed eventualmente trasferire i dati anche al di fuori dello Spazio Economico Europeo, nell'ambito delle garanzie previste dalle clausole contrattuali standard della Commissione Europea adottate da Google. Non vendo né cedo i tuoi dati a terzi per finalità commerciali o pubblicitarie.
+    </p>
+
+    <p style="margin-bottom:20px;">
+      <strong>Per quanto tempo conservo i dati</strong><br>
+      Se la candidatura non va a buon fine o non riceve seguito, i dati vengono conservati per un massimo di 24 mesi dall'invio, poi cancellati. Se diventi partecipante a una spedizione, i dati necessari agli obblighi contrattuali e fiscali vengono conservati per i termini previsti dalla normativa vigente.
+    </p>
+
+    <p style="margin-bottom:20px;">
+      <strong>I tuoi diritti</strong><br>
+      In qualsiasi momento puoi chiedere accesso, rettifica, cancellazione o limitazione del trattamento dei tuoi dati, opporti al trattamento, o richiederne la portabilità (artt. 15–22 GDPR), scrivendo a <a href="mailto:info@oechslinoutdoor.com">info@oechslinoutdoor.com</a>. Hai inoltre diritto di proporre reclamo al Garante per la Protezione dei Dati Personali (www.garanteprivacy.it) se ritieni che il trattamento violi la normativa.
+    </p>
+
+    <p style="opacity:0.55; font-size:12.5px;">
+      Ultimo aggiornamento: <!-- TODO: inserire data --> 2026.
+    </p>
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <span>OECHSLIN OUTDOOR</span>
+  <nav class="footer-nav">
+    <a href="index.html#experiences">Experiences</a>
+    <a href="index.html#map">Mappa</a>
+    <a href="index.html#field-notes">Field Notes</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <span>© 2026</span>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', () => {
+    const nav = document.getElementById('mainNav');
+    const open = nav.classList.toggle('open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>
+</body>
+</html>

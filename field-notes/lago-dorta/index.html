@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lago d'Orta — Field Notes — Oechslin Outdoor</title>
+<meta name="description" content="La storia vera del Lago d'Orta: dichiarato il lago più acido del pianeta nel 1983, oggi in una lenta rinascita. Il territorio da cui nasce Oechslin Outdoor.">
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<link rel="canonical" href="https://oechslinoutdoor.com/field-notes/lago-dorta/">
+
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://oechslinoutdoor.com/field-notes/lago-dorta/">
+<meta property="og:title" content="Lago d'Orta — Field Notes — Oechslin Outdoor">
+<meta property="og:description" content="La storia vera del Lago d'Orta: dichiarato il lago più acido del pianeta nel 1983, oggi in una lenta rinascita. Il territorio da cui nasce Oechslin Outdoor.">
+<!-- TODO: og:image è un placeholder generico — sostituire con una foto reale quando disponibile -->
+<meta property="og:image" content="https://oechslinoutdoor.com/og-image.png">
+
+<link rel="stylesheet" href="../../fonts.css">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="../../index.html" class="topbar-mark">OX</a>
+
+  <nav class="main-nav" id="mainNav">
+    <a href="../../index.html#experiences">Experiences</a>
+    <a href="../../index.html#map">Mappa</a>
+    <a href="../../index.html#field-notes">Field Notes</a>
+    <a href="../../index.html#about">About</a>
+    <a href="../../index.html#contact">Contact</a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<section class="note-head reveal">
+  <span class="eyebrow">Field Notes · Origine</span>
+  <h1>Lago d'Orta</h1>
+</section>
+
+<section class="note-article reveal">
+  <div class="note-hero-photo">
+    <img src="img/orta_3.jpg" alt="Il Lago d'Orta visto dall'alto, con l'Isola di San Giulio e il paese di Orta San Giulio sulla sponda">
+  </div>
+
+  <div class="about-inner">
+    <p>Il lago che ho ripreso a guardare non è sempre stato questo. Negli anni Venti una fabbrica tessile a Gozzano iniziò a scaricare rame e ammoniaca nelle sue acque: in due anni il plancton sparì, e con lui i pesci. Nel 1983 il Lago d'Orta veniva dichiarato il lago più acido del pianeta — non solo inquinato: morto.</p>
+  </div>
+
+  <div class="note-photo">
+    <img src="img/orta_1.jpg" alt="La prua di una barca sul Lago d'Orta, con canottieri in acqua e le montagne sullo sfondo">
+  </div>
+
+  <div class="about-inner">
+    <p>Poi, tra il 1989 e il 1990, un intervento di risanamento su scala mai tentata prima ha immesso carbonati nelle acque per neutralizzarne l'acidità. Non è stata una guarigione immediata: è stato l'inizio di una rinascita lenta, che continua ancora oggi, decennio dopo decennio.</p>
+  </div>
+
+  <div class="note-photo">
+    <img src="img/orta_4.jpg" alt="Il Lago d'Orta visto dalla barca, tra le montagne e le nuvole">
+  </div>
+
+  <div class="about-inner">
+    <p>Ho lavorato per anni in contesti turistici locali a raccontare questo lago a chi non lo conosceva. E ci vado in barca fin da quando ero piccolo: c'è un silenzio, su quell'acqua, che non assomiglia a nessun altro — non vuoto, ma pieno di tutto quello che il lago ha attraversato per tornare a essere così bello. Le montagne capovolte nel riflesso, l'Isola di San Giulio che sembra galleggiare, il rumore dei remi come unico suono per chilometri.</p>
+  </div>
+
+  <div class="note-photo">
+    <img src="img/orta_2.jpg" alt="L'Isola di San Giulio riflessa nell'acqua calma del lago">
+  </div>
+
+  <div class="about-inner">
+    <p>Oechslin Outdoor nasce da questo. Non da un lago qualsiasi, ma da uno che ha dovuto reimparare a essere vivo.</p>
+  </div>
+
+  <div class="note-photo">
+    <img src="img/orta_5.jpg" alt="La poppa di una barca sul lago, tra le colline che si stringono attorno all'acqua">
+  </div>
+</section>
+
+<section class="note-back reveal">
+  <a href="../../index.html#field-notes" class="note-back-link">← Torna a Field Notes</a>
+</section>
+
+<footer class="footer" id="contact">
+  <span>OECHSLIN OUTDOOR</span>
+  <nav class="footer-nav">
+    <a href="../../index.html#experiences">Experiences</a>
+    <a href="../../index.html#map">Mappa</a>
+    <a href="../../index.html#field-notes">Field Notes</a>
+    <a href="../../index.html#about">About</a>
+  </nav>
+  <span>© 2026</span>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', () => {
+    const nav = document.getElementById('mainNav');
+    const open = nav.classList.toggle('open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  function initScrollReveal(){
+    const targets = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.12 });
+    targets.forEach(t => observer.observe(t));
+  }
+  initScrollReveal();
+</script>
+</body>
+</html>

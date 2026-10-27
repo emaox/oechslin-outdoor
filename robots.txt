@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oechslinoutdoor.com/sitemap.xml

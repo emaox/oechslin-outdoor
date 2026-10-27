@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OX-002 · Adriatic Route — Oechslin Outdoor</title>
+<meta name="description" content="Dossier della spedizione Adriatic Route: da Trieste a Santa Maria di Leuca lungo la Ciclovia Adriatica, 1.374 km in 16 tappe attraverso sette regioni.">
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<link rel="canonical" href="https://oechslinoutdoor.com/expeditions/ox-002-adriatic-route/">
+
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oechslinoutdoor.com/expeditions/ox-002-adriatic-route/">
+<meta property="og:title" content="OX-002 · Adriatic Route — Oechslin Outdoor">
+<meta property="og:description" content="Dossier della spedizione Adriatic Route: da Trieste a Santa Maria di Leuca lungo la Ciclovia Adriatica, 1.374 km in 16 tappe attraverso sette regioni.">
+<!-- TODO: og:image è un placeholder generico — sostituire quando ci saranno foto reali della spedizione -->
+<meta property="og:image" content="https://oechslinoutdoor.com/og-image.png">
+
+<link rel="stylesheet" href="../../fonts.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../dossier.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="../../index.html" class="topbar-mark">OX</a>
+
+  <nav class="main-nav" id="mainNav">
+    <a href="../../index.html#experiences">Experiences</a>
+    <a href="../../index.html#map">Mappa</a>
+    <a href="../../index.html#field-notes">Field Notes</a>
+    <a href="../../index.html#about">About</a>
+    <a href="../../index.html#contact">Contact</a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<section class="dossier-hero" style="background-image:url('img/hero_bici.jpg');">
+  <div class="dossier-hero-content">
+    <span class="dossier-hero-planning-tag">Dossier in fase di progettazione</span>
+    <span class="exp-code">OX-002</span>
+    <h1>Adriatic Route</h1>
+    <span class="hero-eyebrow dossier-hero-sub">Italia · Bikepacking Expedition</span>
+  </div>
+</section>
+
+<section class="dossier-countdown reveal">
+  <span class="dossier-countdown-label">Partenza proposta, da confermare · 8 maggio 2027</span>
+  <div class="countdown" aria-label="Conto alla rovescia per la partenza proposta">
+    <div class="countdown-card"><strong id="countdownDays">00</strong><span>Giorni</span></div>
+    <div class="countdown-card"><strong id="countdownHours">00</strong><span>Ore</span></div>
+    <div class="countdown-card"><strong id="countdownMinutes">00</strong><span>Minuti</span></div>
+    <div class="countdown-card"><strong id="countdownSeconds">00</strong><span>Secondi</span></div>
+  </div>
+</section>
+
+<div class="dossier-alert-banner-wrap">
+  <a href="#candidatura" class="dossier-alert-banner">Segnala il tuo interesse →</a>
+</div>
+
+<section class="dossier-stats reveal">
+  <div class="dossier-stats-row">
+    <div class="dossier-stat"><strong>1.374</strong><span>km</span></div>
+    <div class="dossier-stat"><strong>1.455</strong><span>m D+</span></div>
+    <div class="dossier-stat"><strong>16</strong><span>tappe</span></div>
+    <div class="dossier-stat"><strong>7</strong><span>regioni</span></div>
+    <div class="dossier-stat"><strong>●●●○○</strong><span>difficoltà</span></div>
+  </div>
+</section>
+
+<section class="dossier-spirit reveal">
+  <div class="about-inner">
+    <span class="eyebrow">Lo spirito della spedizione</span>
+    <h2>Tutta l'Italia, un litorale alla volta</h2>
+    <p>Adriatic Route nasce da un'idea semplice: percorrere in bici l'intera costa adriatica italiana, da Trieste a Santa Maria di Leuca, seguendo il tracciato della Ciclovia Adriatica attraverso sette regioni.</p>
+    <p>A differenza dell'Atlas Crossing, non l'ho ancora percorsa di persona — questo dossier nasce da una ricerca approfondita sul tracciato reale (vedi le fonti nella sezione "Il percorso" più sotto), non da un sopralluogo diretto. Lo dico apertamente: la sto progettando con la stessa cura con cui ho progettato l'Atlas, ma qui il lavoro sul campo deve ancora cominciare.</p>
+    <p>Il terreno è quasi ovunque pianeggiante — la vera sfida non è tecnica ma di resistenza: 16 tappe da città vera a città vera, tenute il più possibile vicine ai 100 km al giorno (qualcuna più corta apposta nei punti panoramici come Vieste o il Conero, un paio più lunghe dove non c'era un paese comodo a metà strada), in un susseguirsi di lagune, pinete, promontori e infinite spiagge, senza mai perdere il mare di vista.</p>
+    <p><strong>Non una gara contro il tempo, ma contro la propria voglia di fermarsi un giorno di troppo.</strong></p>
+  </div>
+</section>
+
+<section class="dossier-route" id="percorso">
+  <div class="section-head">
+    <span class="eyebrow">Percorso</span>
+    <h2>Sedici tappe, sette regioni</h2>
+    <p>Città vera dopo città vera, il più possibile vicino ai 100 km al giorno — non tappe regionali astratte, ma un programma giorno per giorno.</p>
+  </div>
+
+  <div class="route-preview" aria-hidden="true">
+    <span class="route-preview-item">01 Trieste</span>
+    <span class="route-preview-item">02 Caorle</span>
+    <span class="route-preview-item">03 Chioggia</span>
+    <span class="route-preview-item">04 Comacchio</span>
+    <span class="route-preview-item">05 Rimini</span>
+    <span class="route-preview-item">06 Senigallia</span>
+    <span class="route-preview-item">07 Monte Conero</span>
+    <span class="route-preview-item">08 San Benedetto</span>
+    <span class="route-preview-item">09 Pescara</span>
+    <span class="route-preview-item">10 Termoli</span>
+    <span class="route-preview-item">11 Peschici</span>
+    <span class="route-preview-item">12 Manfredonia</span>
+    <span class="route-preview-item">13 Trani</span>
+    <span class="route-preview-item">14 Bari</span>
+    <span class="route-preview-item">15 Ostuni</span>
+    <span class="route-preview-item">16 Lecce</span>
+    <span class="route-preview-item">17 Santa Maria di Leuca</span>
+  </div>
+
+  <div class="route-layout">
+    <div class="route-map-col">
+      <div id="boundedMap"></div>
+      <div class="map-hud" aria-hidden="true">
+        <span class="boot-corner boot-corner--tl" style="top:8px;left:8px;"></span>
+        <span class="boot-corner boot-corner--tr" style="top:8px;right:8px;"></span>
+        <span class="boot-corner boot-corner--bl" style="bottom:8px;left:8px;"></span>
+        <span class="boot-corner boot-corner--br" style="bottom:8px;right:8px;"></span>
+        <div class="map-hud-readout">
+          <div class="boot-hud-label">RICOGNIZIONE — TERRENO</div>
+          <div class="map-hud-value" id="hudTerreno">PANORAMICA TRACCIATO</div>
+          <div class="map-hud-sub">
+            <span id="hudCoords">TRIESTE → SANTA MARIA DI LEUCA</span>
+            <span>·</span>
+            <span id="hudStep">OVERVIEW</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="route-cards-col">
+      <div class="day-card" data-step="0">
+        <div class="route-card">
+          <span class="route-dot">—</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>L'intera costa adriatica</h3><span class="route-badge">Overview</span></div>
+            <p>La mappa mostra l'intero tracciato, dal Carso triestino al Salento. Scorri per entrare nelle singole tappe regionali.</p>
+            <span class="route-scroll-hint">↓ Scorri per iniziare</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="1">
+        <div class="route-card">
+          <span class="route-dot">01</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Trieste</h3><span class="route-badge">Start</span></div>
+            <p>Partenza dal capoluogo giuliano, con il Carso alle spalle e tutta la costa italiana davanti.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="2">
+        <div class="route-card">
+          <span class="route-dot">02</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Caorle</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">128 km</span>
+              <span class="route-stat route-stat--elevation">+40 m</span>
+            </div>
+            <p>Il tratto più lungo di tutta la traversata: costa friulana e veneta, pianeggiante e diretta.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="3">
+        <div class="route-card">
+          <span class="route-dot">03</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Chioggia</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">116 km</span>
+              <span class="route-stat route-stat--elevation">+20 m</span>
+            </div>
+            <p>Jesolo e la laguna veneziana, fino alla punta meridionale del Veneto.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="4">
+        <div class="route-card">
+          <span class="route-dot">04</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Comacchio</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">68 km</span>
+              <span class="route-stat route-stat--elevation">+15 m</span>
+            </div>
+            <p>Giornata corta apposta: il Delta del Po e le valli di Comacchio meritano tempo per essere guardati, non solo attraversati.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="5">
+        <div class="route-card">
+          <span class="route-dot">05</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Rimini</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">103 km</span>
+              <span class="route-stat route-stat--elevation">+25 m</span>
+            </div>
+            <p>Ravenna e la riviera romagnola, dritti fino a Rimini.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="6">
+        <div class="route-card">
+          <span class="route-dot">06</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Senigallia</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">75 km</span>
+              <span class="route-stat route-stat--elevation">+30 m</span>
+            </div>
+            <p>Pesaro e Fano: si entra nelle Marche, il litorale comincia ad alternare spiaggia e collina.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="7">
+        <div class="route-card">
+          <span class="route-dot">07</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Sirolo — Monte Conero</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">52 km</span>
+              <span class="route-stat route-stat--elevation">+200 m</span>
+            </div>
+            <p>Giornata corta e verticale: il primo vero rilievo del percorso, il promontorio del Conero a picco sul mare.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="8">
+        <div class="route-card">
+          <span class="route-dot">08</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>San Benedetto del Tronto</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">77 km</span>
+              <span class="route-stat route-stat--elevation">+180 m</span>
+            </div>
+            <p>Le colline marchigiane scendono verso il confine con l'Abruzzo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="9">
+        <div class="route-card">
+          <span class="route-dot">09</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Pescara</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">72 km</span>
+              <span class="route-stat route-stat--elevation">+40 m</span>
+            </div>
+            <p>Si torna in pianura, su piste ciclabili dedicate (Bike to Coast) lontane dal traffico.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="10">
+        <div class="route-card">
+          <span class="route-dot">10</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Termoli</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">113 km</span>
+              <span class="route-stat route-stat--elevation">+60 m</span>
+            </div>
+            <p>Passando per Vasto, si chiude l'Abruzzo e si attraversa tutta la costa molisana — la più corta d'Italia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="11">
+        <div class="route-card">
+          <span class="route-dot">11</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Peschici</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">111 km</span>
+              <span class="route-stat route-stat--elevation">+320 m</span>
+            </div>
+            <p>Il Gargano: il secondo grande promontorio del percorso, tra i più impegnativi di tutta la traversata.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="12">
+        <div class="route-card">
+          <span class="route-dot">12</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Manfredonia</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">77 km</span>
+              <span class="route-stat route-stat--elevation">+280 m</span>
+            </div>
+            <p>Si passa per Vieste, la punta orientale del Gargano, prima di ridiscendere verso la pianura pugliese.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="13">
+        <div class="route-card">
+          <span class="route-dot">13</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Trani</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">70 km</span>
+              <span class="route-stat route-stat--elevation">+30 m</span>
+            </div>
+            <p>La Puglia si fa pianeggiante e diretta: cattedrali romaniche sul mare.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="14">
+        <div class="route-card">
+          <span class="route-dot">14</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Bari</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">52 km</span>
+              <span class="route-stat route-stat--elevation">+25 m</span>
+            </div>
+            <p>Giornata breve verso il capoluogo pugliese.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="15">
+        <div class="route-card">
+          <span class="route-dot">15</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Ostuni</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">87 km</span>
+              <span class="route-stat route-stat--elevation">+90 m</span>
+            </div>
+            <p>Passando per Polignano a Mare, si entra nella Valle d'Itria: la Puglia collinare, ulivi e trulli.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="16">
+        <div class="route-card">
+          <span class="route-dot">16</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Lecce</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">77 km</span>
+              <span class="route-stat route-stat--elevation">+40 m</span>
+            </div>
+            <p>Si scende nel Salento, tra barocco leccese e pianura assolata.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="17">
+        <div class="route-card">
+          <span class="route-dot">17</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Santa Maria di Leuca</h3><span class="route-badge">Finish</span></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">96 km</span>
+              <span class="route-stat route-stat--elevation">+60 m</span>
+            </div>
+            <p>L'ultima tappa, passando per Otranto, fino alla punta estrema del Salento — dove Adriatico e Ionio si incontrano.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="18">
+        <div class="route-card">
+          <span class="route-dot">—</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Il viaggio completo</h3><span class="route-badge">Totale</span></div>
+            <p>Da Trieste a Santa Maria di Leuca: l'intera costa adriatica italiana, in un unico itinerario.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="elevation-block">
+    <span class="dossier-countdown-label">Profilo altimetrico · dislivello cumulato</span>
+    <div id="elevationProfile"></div>
+  </div>
+</section>
+
+<section class="dossier-trust reveal" id="informazioni">
+  <div class="section-head">
+    <span class="eyebrow">Prima di partire</span>
+    <h2>Informazioni pratiche</h2>
+    <p>La spedizione è ancora in fase di progettazione: quota e data definitiva verranno confermate più avanti.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <span class="trust-card-tag">Il percorso</span>
+      <p>
+        Le tappe di questo dossier seguono il tracciato pubblico della Ciclovia Adriatica / EuroVelo 8.
+        Km e dislivelli sono stime basate su fonti pubbliche, non su un GPX rilevato di persona: verranno affinati con un sopralluogo reale prima della partenza.
+      </p>
+      <span class="trust-source">Fonti: cicloviaadriatica.eu, Bike Italia, Cicloturismo.it — 2026.</span>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Documenti richiesti</span>
+      <p>
+        Il percorso si svolge interamente in Italia: basta un documento d'identità valido (carta d'identità o patente), nessun passaporto o visto necessario.
+      </p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Livello richiesto</span>
+      <p>
+        Difficoltà ●●●○○ (3/5). Il terreno è quasi ovunque pianeggiante e su piste ciclabili o strade secondarie a basso traffico — tecnicamente accessibile.
+        La vera richiesta è di resistenza: 16 tappe da città vera a città vera, quasi tutte tra i 70 e i 130 km, in circa tre settimane contando le soste — con qualche giornata più impegnativa sui promontori del Conero e del Gargano.
+      </p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Rientro</span>
+      <p>
+        <!-- DA CONFERMARE -->
+        Il rientro da Santa Maria di Leuca è ancora da definire nel dettaglio — l'idea è un trasferimento in treno con bici al seguito verso il punto di partenza.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="dossier-quota reveal" id="quota">
+  <div class="section-head">
+    <span class="eyebrow">La quota</span>
+    <h2>Ancora in fase di definizione</h2>
+    <p>Non ho ancora fissato una quota definitiva per questa spedizione. Qui sotto trovi una bozza indicativa di cosa prevedo includere — non un prezzo, non ancora un impegno definitivo.</p>
+  </div>
+
+  <div class="quota-accordions">
+    <div class="accordion">
+      <button class="accordion-trigger" aria-expanded="false" aria-controls="panelComprende">
+        <span class="accordion-label">Bozza: la quota comprenderà</span>
+        <span class="accordion-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="accordion-panel" id="panelComprende" hidden>
+        <ul class="quota-list">
+          <li>Alloggio per tutte le notti del percorso</li>
+          <li>Supporto logistico e trasporto bagagli</li>
+          <li>Assistenza meccanica lungo il tragitto</li>
+          <li>Tracce GPS e documentazione tecnica delle tappe</li>
+          <li>Guida/accompagnatore per la spedizione</li>
+          <li>Rientro da Santa Maria di Leuca al punto di partenza</li>
+        </ul>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-trigger" aria-expanded="false" aria-controls="panelNonComprende">
+        <span class="accordion-label">Bozza: la quota non comprenderà</span>
+        <span class="accordion-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="accordion-panel" id="panelNonComprende" hidden>
+        <ul class="quota-list">
+          <li>Bicicletta personale (noleggio opzionale in valutazione)</li>
+          <li>Pasti fuori dal programma</li>
+          <li>Spese personali e souvenir</li>
+          <li>Abbigliamento tecnico personale</li>
+          <li>Trasferimenti privati non in programma</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dossier-form reveal" id="candidatura">
+  <div class="dossier-cta-banner">
+    <span>Dossier in progettazione · partenza proposta 8 maggio 2027</span>
+    <strong>Segnala il tuo interesse per questa spedizione</strong>
+  </div>
+
+  <div class="section-head">
+    <span class="eyebrow">Interesse</span>
+    <h2>Vuoi essere aggiornato?</h2>
+    <p>Quota e data definitiva non sono ancora confermate: compila il form per essere tra i primi a saperlo, non è un impegno a partecipare.</p>
+  </div>
+
+  <form class="dossier-form-grid" id="formCandidatura">
+    <div class="form-group">
+      <label for="fieldNome">Nome</label>
+      <input type="text" id="fieldNome" name="nome" placeholder="Es. Marco" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldCognome">Cognome</label>
+      <input type="text" id="fieldCognome" name="cognome" placeholder="Es. Rossi" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEta">Età</label>
+      <input type="number" id="fieldEta" name="eta" placeholder="Es. 28" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldTelefono">Telefono</label>
+      <input type="tel" id="fieldTelefono" name="telefono" placeholder="+39 333 000 0000" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEmail">Email</label>
+      <input type="email" id="fieldEmail" name="email" placeholder="marco@email.com" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEsperienza">Esperienza outdoor</label>
+      <select id="fieldEsperienza" name="esperienza" required>
+        <option value="">Seleziona livello</option>
+        <option value="base">Base — qualche uscita in bici o trekking</option>
+        <option value="intermedio">Intermedio — viaggi in autonomia, più giorni</option>
+        <option value="avanzato">Avanzato — spedizioni, gravel/MTB lunghe distanze</option>
+      </select>
+    </div>
+    <div class="form-group full">
+      <label for="fieldMotivazione">Motivazione</label>
+      <textarea id="fieldMotivazione" name="motivazione" rows="4" placeholder="Raccontami perché ti interessa..." required></textarea>
+    </div>
+
+    <div class="form-group full form-consent">
+      <label class="consent-label">
+        <input type="checkbox" id="fieldConsenso" name="consenso" required>
+        <span>Ho letto e accetto <a href="../../privacy.html" target="_blank" rel="noopener">l'informativa sulla privacy</a>.</span>
+      </label>
+    </div>
+
+    <!-- honeypot anti-spam: campo fuori schermo, invisibile e ignorato da
+         utenti/screen reader reali, ma spesso compilato dai bot che riempiono
+         ogni input che trovano. Se arriva valorizzato, l'invio viene bloccato
+         in silenzio (vedi initForm in dossier.js). -->
+    <div class="form-group hp-field" aria-hidden="true">
+      <label for="fieldWebsite">Sito web</label>
+      <input type="text" id="fieldWebsite" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary" id="btnCandidatura">Segnala il tuo interesse</button>
+    </div>
+    <div id="formFeedback" class="form-feedback" aria-live="polite"></div>
+  </form>
+</section>
+
+<section class="dossier-back reveal">
+  <a href="../../index.html#experiences" class="dossier-back-link">← Torna alle experiences</a>
+</section>
+
+<footer class="footer" id="contact">
+  <span>OECHSLIN OUTDOOR</span>
+  <nav class="footer-nav">
+    <a href="../../index.html#experiences">Experiences</a>
+    <a href="../../index.html#map">Mappa</a>
+    <a href="../../index.html#field-notes">Field Notes</a>
+    <a href="../../index.html#about">About</a>
+  </nav>
+  <span>© 2026</span>
+</footer>
+
+<script src="data.js"></script>
+<script src="../../dossier.js"></script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OX-003 · Monte Bianco Traverse — Oechslin Outdoor</title>
+<meta name="description" content="Dossier della spedizione Monte Bianco Traverse: il Tour du Mont Blanc, 170 km e 10.000 m D+ in 11 tappe tra Francia, Italia e Svizzera.">
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<link rel="canonical" href="https://oechslinoutdoor.com/expeditions/ox-003-monte-bianco-traverse/">
+
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oechslinoutdoor.com/expeditions/ox-003-monte-bianco-traverse/">
+<meta property="og:title" content="OX-003 · Monte Bianco Traverse — Oechslin Outdoor">
+<meta property="og:description" content="Dossier della spedizione Monte Bianco Traverse: il Tour du Mont Blanc, 170 km e 10.000 m D+ in 11 tappe tra Francia, Italia e Svizzera.">
+<!-- TODO: og:image è un placeholder generico — sostituire quando ci saranno foto reali della spedizione -->
+<meta property="og:image" content="https://oechslinoutdoor.com/og-image.png">
+
+<link rel="stylesheet" href="../../fonts.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../dossier.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="../../index.html" class="topbar-mark">OX</a>
+
+  <nav class="main-nav" id="mainNav">
+    <a href="../../index.html#experiences">Experiences</a>
+    <a href="../../index.html#map">Mappa</a>
+    <a href="../../index.html#field-notes">Field Notes</a>
+    <a href="../../index.html#about">About</a>
+    <a href="../../index.html#contact">Contact</a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<section class="dossier-hero" style="background-image:url('img/montebianco.jpg');">
+  <div class="dossier-hero-content">
+    <span class="dossier-hero-planning-tag">Dossier in fase di progettazione</span>
+    <span class="exp-code">OX-003</span>
+    <h1>Monte Bianco Traverse</h1>
+    <span class="hero-eyebrow dossier-hero-sub">Alpi · Alpine Trail</span>
+  </div>
+</section>
+
+<section class="dossier-countdown reveal">
+  <span class="dossier-countdown-label">Partenza proposta, da confermare · 4 settembre 2027</span>
+  <div class="countdown" aria-label="Conto alla rovescia per la partenza proposta">
+    <div class="countdown-card"><strong id="countdownDays">00</strong><span>Giorni</span></div>
+    <div class="countdown-card"><strong id="countdownHours">00</strong><span>Ore</span></div>
+    <div class="countdown-card"><strong id="countdownMinutes">00</strong><span>Minuti</span></div>
+    <div class="countdown-card"><strong id="countdownSeconds">00</strong><span>Secondi</span></div>
+  </div>
+</section>
+
+<div class="dossier-alert-banner-wrap">
+  <a href="#candidatura" class="dossier-alert-banner">Segnala il tuo interesse →</a>
+</div>
+
+<section class="dossier-stats reveal">
+  <div class="dossier-stats-row">
+    <div class="dossier-stat"><strong>170</strong><span>km</span></div>
+    <div class="dossier-stat"><strong>10.140</strong><span>m D+</span></div>
+    <div class="dossier-stat"><strong>11</strong><span>tappe</span></div>
+    <div class="dossier-stat"><strong>3</strong><span>paesi</span></div>
+    <div class="dossier-stat"><strong>●●●●○</strong><span>difficoltà</span></div>
+  </div>
+</section>
+
+<section class="dossier-spirit reveal">
+  <div class="about-inner">
+    <span class="eyebrow">Lo spirito della spedizione</span>
+    <h2>Un anello attorno al tetto d'Europa</h2>
+    <p>Monte Bianco Traverse ripercorre il Tour du Mont Blanc: un anello classico di 170 km che gira attorno al massiccio passando per Francia, Italia e Svizzera, senza mai perderlo di vista.</p>
+    <p>Come per l'Adriatic Route, non l'ho ancora percorsa di persona — questo dossier nasce da una ricerca su uno dei percorsi di trekking più documentati e standardizzati al mondo (vedi le fonti nella sezione "Il percorso" più sotto), non da un sopralluogo diretto. La differenza, qui, è che il tracciato stesso è già una certezza: sono i dettagli logistici — rifugi, prenotazioni, quota — a dover ancora essere definiti.</p>
+    <p>Undici tappe, undici notti in rifugio, quattro colli alpini da superare. Non c'è arrampicata né corda, ma c'è quota, e c'è un dislivello cumulato che si fa sentire giorno dopo giorno.</p>
+    <p><strong>Non si va a vedere il Monte Bianco. Ci si cammina intorno, per undici giorni, senza mai smettere di guardarlo.</strong></p>
+  </div>
+</section>
+
+<section class="dossier-route" id="percorso">
+  <div class="section-head">
+    <span class="eyebrow">Percorso</span>
+    <h2>Undici tappe, tre paesi</h2>
+    <p>Il tracciato classico del Tour du Mont Blanc, in senso antiorario da Les Houches: ogni tappa qui sotto è una vera giornata di cammino, rifugio dopo rifugio.</p>
+  </div>
+
+  <div class="route-preview" aria-hidden="true">
+    <span class="route-preview-item">01 Refuge de Miage</span>
+    <span class="route-preview-item">02 Croix du Bonhomme</span>
+    <span class="route-preview-item">03 Rifugio Elisabetta</span>
+    <span class="route-preview-item">04 Courmayeur</span>
+    <span class="route-preview-item">05 Rifugio Bonatti</span>
+    <span class="route-preview-item">06 La Fouly</span>
+    <span class="route-preview-item">07 Champex-Lac</span>
+    <span class="route-preview-item">08 Trient</span>
+    <span class="route-preview-item">09 Tré-le-Champ</span>
+    <span class="route-preview-item">10 La Flégère</span>
+    <span class="route-preview-item">11 Les Houches</span>
+  </div>
+
+  <div class="route-layout">
+    <div class="route-map-col">
+      <div id="boundedMap"></div>
+      <div class="map-hud" aria-hidden="true">
+        <span class="boot-corner boot-corner--tl" style="top:8px;left:8px;"></span>
+        <span class="boot-corner boot-corner--tr" style="top:8px;right:8px;"></span>
+        <span class="boot-corner boot-corner--bl" style="bottom:8px;left:8px;"></span>
+        <span class="boot-corner boot-corner--br" style="bottom:8px;right:8px;"></span>
+        <div class="map-hud-readout">
+          <div class="boot-hud-label">RICOGNIZIONE — TERRENO</div>
+          <div class="map-hud-value" id="hudTerreno">PANORAMICA TRACCIATO</div>
+          <div class="map-hud-sub">
+            <span id="hudCoords">LES HOUCHES → LES HOUCHES</span>
+            <span>·</span>
+            <span id="hudStep">OVERVIEW</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="route-cards-col">
+      <div class="day-card" data-step="0">
+        <div class="route-card">
+          <span class="route-dot">—</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>L'anello del Monte Bianco</h3><span class="route-badge">Overview</span></div>
+            <p>La mappa mostra l'intero anello, da Les Houches a Les Houches passando per tre paesi. Scorri per entrare nelle singole tappe.</p>
+            <span class="route-scroll-hint">↓ Scorri per iniziare</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="1">
+        <div class="route-card">
+          <span class="route-dot">01</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Refuge de Miage</h3><span class="route-badge">Start</span></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">17 km</span>
+              <span class="route-stat route-stat--elevation">+1.230 m</span>
+            </div>
+            <p>Si parte da Les Houches: la prima salita è già impegnativa, verso il ghiacciaio di Tré-la-Tête.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="2">
+        <div class="route-card">
+          <span class="route-dot">02</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Croix du Bonhomme</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">20 km</span>
+              <span class="route-stat route-stat--elevation">+1.480 m</span>
+            </div>
+            <p>La tappa più lunga e con più dislivello di tutto il giro: il Col du Bonhomme, in alta quota.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="3">
+        <div class="route-card">
+          <span class="route-dot">03</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Rifugio Elisabetta</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">16 km</span>
+              <span class="route-stat route-stat--elevation">+780 m</span>
+            </div>
+            <p>Il Col de la Seigne: si lascia la Francia e si entra in Italia, nella Val Veny.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="4">
+        <div class="route-card">
+          <span class="route-dot">04</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Courmayeur</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">14 km</span>
+              <span class="route-stat route-stat--elevation">+500 m</span>
+            </div>
+            <p>Discesa verso l'unico vero centro abitato del percorso: un giorno più leggero, utile per rifiatare.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="5">
+        <div class="route-card">
+          <span class="route-dot">05</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Rifugio Bonatti</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">17 km</span>
+              <span class="route-stat route-stat--elevation">+950 m</span>
+            </div>
+            <p>Si risale nella Val Ferret italiana, con il versante sud del Monte Bianco sempre di fronte.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="6">
+        <div class="route-card">
+          <span class="route-dot">06</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>La Fouly</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">13 km</span>
+              <span class="route-stat route-stat--elevation">+750 m</span>
+            </div>
+            <p>Il Grand Col Ferret: secondo confine del giro, dall'Italia alla Svizzera.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="7">
+        <div class="route-card">
+          <span class="route-dot">07</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Champex-Lac</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">16 km</span>
+              <span class="route-stat route-stat--elevation">+600 m</span>
+            </div>
+            <p>Il Vallese svizzero, fino a un piccolo lago alpino incastonato nel bosco.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="8">
+        <div class="route-card">
+          <span class="route-dot">08</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Trient</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">19 km</span>
+              <span class="route-stat route-stat--elevation">+1.400 m</span>
+            </div>
+            <p>La Fenêtre d'Arpette: il valico più alto e più tecnico dell'intero tracciato.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="9">
+        <div class="route-card">
+          <span class="route-dot">09</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Tré-le-Champ</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">15 km</span>
+              <span class="route-stat route-stat--elevation">+950 m</span>
+            </div>
+            <p>Il Col de Balme: terzo e ultimo confine, dalla Svizzera di nuovo in Francia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="10">
+        <div class="route-card">
+          <span class="route-dot">10</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>La Flégère</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">10 km</span>
+              <span class="route-stat route-stat--elevation">+1.000 m</span>
+            </div>
+            <p>La tappa più corta ma tra le più ripide: si sale sul balcone panoramico delle Aiguilles Rouges, proprio di fronte al Monte Bianco.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="11">
+        <div class="route-card">
+          <span class="route-dot">11</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Les Houches</h3><span class="route-badge">Finish</span></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">13 km</span>
+              <span class="route-stat route-stat--elevation">+500 m</span>
+            </div>
+            <p>L'ultima discesa chiude l'anello: si torna al punto di partenza, con il giro completo alle spalle.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="12">
+        <div class="route-card">
+          <span class="route-dot">—</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Il giro completo</h3><span class="route-badge">Totale</span></div>
+            <p>Un anello di 170 km attorno al Monte Bianco, tra Francia, Italia e Svizzera, in un unico itinerario.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="elevation-block">
+    <span class="dossier-countdown-label">Profilo altimetrico · dislivello cumulato</span>
+    <div id="elevationProfile"></div>
+  </div>
+</section>
+
+<section class="dossier-trust reveal" id="informazioni">
+  <div class="section-head">
+    <span class="eyebrow">Prima di partire</span>
+    <h2>Informazioni pratiche</h2>
+    <p>La spedizione è ancora in fase di progettazione: quota e data definitiva verranno confermate più avanti.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <span class="trust-card-tag">Il percorso</span>
+      <p>
+        Le tappe di questo dossier seguono il tracciato classico del Tour du Mont Blanc, uno dei trekking più documentati al mondo.
+        Esistono varianti ufficiali del percorso: quella qui descritta verrà confermata (o eventualmente adattata) dopo un sopralluogo reale.
+      </p>
+      <span class="trust-source">Fonti: toursdumontblanc.com, Book a Trekking — 2026.</span>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Documenti richiesti</span>
+      <p>
+        Il percorso attraversa Francia, Italia e Svizzera — tutte nello spazio Schengen: basta un documento d'identità valido, nessun passaporto o visto necessario per cittadini UE.
+        Se non hai cittadinanza italiana, verifica comunque i requisiti specifici per il tuo paese.
+      </p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Livello richiesto</span>
+      <p>
+        Difficoltà ●●●●○ (4/5). Nessuna arrampicata o attrezzatura tecnica richiesta, ma quota, dislivelli giornalieri fino a 1.480 m e undici giorni consecutivi di cammino richiedono una buona preparazione fisica.
+        Non è un trekking per principianti assoluti.
+      </p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Rifugi</span>
+      <p>
+        <!-- DA CONFERMARE -->
+        Si pernotta in rifugio ogni notte, in genere con mezza pensione. I rifugi lungo il TMB hanno posti limitati e vanno prenotati con largo anticipo — quali rifugi esatti verranno riservati è ancora da definire.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="dossier-quota reveal" id="quota">
+  <div class="section-head">
+    <span class="eyebrow">La quota</span>
+    <h2>Ancora in fase di definizione</h2>
+    <p>Non ho ancora fissato una quota definitiva per questa spedizione. Qui sotto trovi una bozza indicativa di cosa prevedo includere — non un prezzo, non ancora un impegno definitivo.</p>
+  </div>
+
+  <div class="quota-accordions">
+    <div class="accordion">
+      <button class="accordion-trigger" aria-expanded="false" aria-controls="panelComprende">
+        <span class="accordion-label">Bozza: la quota comprenderà</span>
+        <span class="accordion-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="accordion-panel" id="panelComprende" hidden>
+        <ul class="quota-list">
+          <li>Pernottamento in rifugio con mezza pensione per tutte le notti</li>
+          <li>Guida/accompagnatore di montagna</li>
+          <li>Assistenza logistica lungo il percorso</li>
+          <li>Documentazione tecnica delle tappe</li>
+          <li>Prenotazione anticipata dei rifugi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-trigger" aria-expanded="false" aria-controls="panelNonComprende">
+        <span class="accordion-label">Bozza: la quota non comprenderà</span>
+        <span class="accordion-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="accordion-panel" id="panelNonComprende" hidden>
+        <ul class="quota-list">
+          <li>Attrezzatura tecnica personale da trekking</li>
+          <li>Pranzi al sacco e bevande extra nei rifugi</li>
+          <li>Spese personali</li>
+          <li>Trasferimenti da/per Les Houches non in programma</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dossier-form reveal" id="candidatura">
+  <div class="dossier-cta-banner">
+    <span>Dossier in progettazione · partenza proposta 4 settembre 2027</span>
+    <strong>Segnala il tuo interesse per questa spedizione</strong>
+  </div>
+
+  <div class="section-head">
+    <span class="eyebrow">Interesse</span>
+    <h2>Vuoi essere aggiornato?</h2>
+    <p>Quota e data definitiva non sono ancora confermate: compila il form per essere tra i primi a saperlo, non è un impegno a partecipare.</p>
+  </div>
+
+  <form class="dossier-form-grid" id="formCandidatura">
+    <div class="form-group">
+      <label for="fieldNome">Nome</label>
+      <input type="text" id="fieldNome" name="nome" placeholder="Es. Marco" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldCognome">Cognome</label>
+      <input type="text" id="fieldCognome" name="cognome" placeholder="Es. Rossi" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEta">Età</label>
+      <input type="number" id="fieldEta" name="eta" placeholder="Es. 28" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldTelefono">Telefono</label>
+      <input type="tel" id="fieldTelefono" name="telefono" placeholder="+39 333 000 0000" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEmail">Email</label>
+      <input type="email" id="fieldEmail" name="email" placeholder="marco@email.com" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEsperienza">Esperienza outdoor</label>
+      <select id="fieldEsperienza" name="esperienza" required>
+        <option value="">Seleziona livello</option>
+        <option value="base">Base — qualche uscita in bici o trekking</option>
+        <option value="intermedio">Intermedio — viaggi in autonomia, più giorni</option>
+        <option value="avanzato">Avanzato — spedizioni, gravel/MTB lunghe distanze</option>
+      </select>
+    </div>
+    <div class="form-group full">
+      <label for="fieldMotivazione">Motivazione</label>
+      <textarea id="fieldMotivazione" name="motivazione" rows="4" placeholder="Raccontami perché ti interessa..." required></textarea>
+    </div>
+
+    <div class="form-group full form-consent">
+      <label class="consent-label">
+        <input type="checkbox" id="fieldConsenso" name="consenso" required>
+        <span>Ho letto e accetto <a href="../../privacy.html" target="_blank" rel="noopener">l'informativa sulla privacy</a>.</span>
+      </label>
+    </div>
+
+    <!-- honeypot anti-spam: campo fuori schermo, invisibile e ignorato da
+         utenti/screen reader reali, ma spesso compilato dai bot che riempiono
+         ogni input che trovano. Se arriva valorizzato, l'invio viene bloccato
+         in silenzio (vedi initForm in dossier.js). -->
+    <div class="form-group hp-field" aria-hidden="true">
+      <label for="fieldWebsite">Sito web</label>
+      <input type="text" id="fieldWebsite" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary" id="btnCandidatura">Segnala il tuo interesse</button>
+    </div>
+    <div id="formFeedback" class="form-feedback" aria-live="polite"></div>
+  </form>
+</section>
+
+<section class="dossier-back reveal">
+  <a href="../../index.html#experiences" class="dossier-back-link">← Torna alle experiences</a>
+</section>
+
+<footer class="footer" id="contact">
+  <span>OECHSLIN OUTDOOR</span>
+  <nav class="footer-nav">
+    <a href="../../index.html#experiences">Experiences</a>
+    <a href="../../index.html#map">Mappa</a>
+    <a href="../../index.html#field-notes">Field Notes</a>
+    <a href="../../index.html#about">About</a>
+  </nav>
+  <span>© 2026</span>
+</footer>
+
+<script src="data.js"></script>
+<script src="../../dossier.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo.
+     Quando aggiungi una nuova spedizione in expeditions/ox-XXX-nome/ o un
+     nuovo field note in field-notes/nome/, aggiungi qui una nuova <url>.
+     privacy.html non è inclusa (ha meta robots noindex). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://oechslinoutdoor.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://oechslinoutdoor.com/expeditions/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oechslinoutdoor.com/expeditions/ox-001-atlas-crossing/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oechslinoutdoor.com/expeditions/ox-002-adriatic-route/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oechslinoutdoor.com/expeditions/ox-003-monte-bianco-traverse/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oechslinoutdoor.com/expeditions/ox-004-markha-valley/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oechslinoutdoor.com/field-notes/lago-dorta/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>

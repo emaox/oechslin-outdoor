@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OX-004 · Markha Valley Trek — Oechslin Outdoor</title>
+<meta name="description" content="Dossier della spedizione Markha Valley Trek: 70 km e 3.330 m D+ nello Hemis National Park, Ladakh, fino al Kongmaru La a 5.200 m.">
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<link rel="canonical" href="https://oechslinoutdoor.com/expeditions/ox-004-markha-valley/">
+
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oechslinoutdoor.com/expeditions/ox-004-markha-valley/">
+<meta property="og:title" content="OX-004 · Markha Valley Trek — Oechslin Outdoor">
+<meta property="og:description" content="Dossier della spedizione Markha Valley Trek: 70 km e 3.330 m D+ nello Hemis National Park, Ladakh, fino al Kongmaru La a 5.200 m.">
+<!-- TODO: og:image è un placeholder generico — sostituire quando ci saranno foto reali della spedizione -->
+<meta property="og:image" content="https://oechslinoutdoor.com/og-image.png">
+
+<link rel="stylesheet" href="../../fonts.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../dossier.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="../../index.html" class="topbar-mark">OX</a>
+
+  <nav class="main-nav" id="mainNav">
+    <a href="../../index.html#experiences">Experiences</a>
+    <a href="../../index.html#map">Mappa</a>
+    <a href="../../index.html#field-notes">Field Notes</a>
+    <a href="../../index.html#about">About</a>
+    <a href="../../index.html#contact">Contact</a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<section class="dossier-hero" style="background-image:url('img/ladakh.jpg');">
+  <div class="dossier-hero-content">
+    <span class="dossier-hero-planning-tag">Dossier in fase di progettazione</span>
+    <span class="exp-code">OX-004</span>
+    <h1>Markha Valley Trek</h1>
+    <span class="hero-eyebrow dossier-hero-sub">Ladakh, India · Alta Quota</span>
+  </div>
+</section>
+
+<section class="dossier-countdown reveal">
+  <span class="dossier-countdown-label">Partenza proposta, da confermare · 17 luglio 2027</span>
+  <div class="countdown" aria-label="Conto alla rovescia per la partenza proposta">
+    <div class="countdown-card"><strong id="countdownDays">00</strong><span>Giorni</span></div>
+    <div class="countdown-card"><strong id="countdownHours">00</strong><span>Ore</span></div>
+    <div class="countdown-card"><strong id="countdownMinutes">00</strong><span>Minuti</span></div>
+    <div class="countdown-card"><strong id="countdownSeconds">00</strong><span>Secondi</span></div>
+  </div>
+</section>
+
+<div class="dossier-alert-banner-wrap">
+  <a href="#candidatura" class="dossier-alert-banner">Segnala il tuo interesse →</a>
+</div>
+
+<section class="dossier-stats reveal">
+  <div class="dossier-stats-row">
+    <div class="dossier-stat"><strong>70</strong><span>km</span></div>
+    <div class="dossier-stat"><strong>3.330</strong><span>m D+</span></div>
+    <div class="dossier-stat"><strong>8</strong><span>tappe</span></div>
+    <div class="dossier-stat"><strong>5.200</strong><span>m quota max</span></div>
+    <div class="dossier-stat"><strong>●●●●●</strong><span>difficoltà</span></div>
+  </div>
+</section>
+
+<section class="dossier-spirit reveal">
+  <div class="about-inner">
+    <span class="eyebrow">Lo spirito della spedizione</span>
+    <h2>Il deserto sopra le nuvole</h2>
+    <p>Markha Valley Trek attraversa lo Hemis National Park, nel cuore del Ladakh: un altopiano desertico a oltre 3.500 m, chiuso tra alcune delle catene più alte dell'Himalaya, dove i villaggi vivono ancora di agricoltura di sussistenza e i monasteri buddhisti punteggiano le valli.</p>
+    <p>Come per Adriatic Route e Monte Bianco, non l'ho ancora percorsa di persona — questo dossier nasce da una ricerca su uno dei trekking più praticati e documentati del Ladakh (vedi le fonti nella sezione "Il percorso" più sotto), non da un sopralluogo diretto.</p>
+    <p>A differenza delle altre spedizioni, qui il vero limite non sono i chilometri (solo 70 km in otto giorni) ma la quota: si dorme fino a 4.700 m, e si superano due passi oltre i 4.900 m — il Ganda La e il Kongmaru La, quest'ultimo a 5.200 m. Il mal di montagna acuto è un rischio reale, non un dettaglio da opuscolo: per questo il programma prevede giorni di acclimatazione a Leh prima di entrare in quota.</p>
+    <p><strong>Non è una camminata. È un adattamento, giorno dopo giorno, a un'aria che si fa sempre più sottile.</strong></p>
+  </div>
+</section>
+
+<section class="dossier-route" id="percorso">
+  <div class="section-head">
+    <span class="eyebrow">Percorso</span>
+    <h2>Otto tappe, due passi oltre i 4.900 m</h2>
+    <p>Il tracciato classico via Ganda La e Kongmaru La, dentro lo Hemis National Park: ogni tappa qui sotto è una vera giornata di cammino, villaggio dopo villaggio.</p>
+  </div>
+
+  <div class="route-preview" aria-hidden="true">
+    <span class="route-preview-item">01 Rumbak</span>
+    <span class="route-preview-item">02 Ganda La Base</span>
+    <span class="route-preview-item">03 Skiu</span>
+    <span class="route-preview-item">04 Markha</span>
+    <span class="route-preview-item">05 Hankar</span>
+    <span class="route-preview-item">06 Nimaling</span>
+    <span class="route-preview-item">07 Shangsumdo</span>
+    <span class="route-preview-item">08 Leh</span>
+  </div>
+
+  <div class="route-layout">
+    <div class="route-map-col">
+      <div id="boundedMap"></div>
+      <div class="map-hud" aria-hidden="true">
+        <span class="boot-corner boot-corner--tl" style="top:8px;left:8px;"></span>
+        <span class="boot-corner boot-corner--tr" style="top:8px;right:8px;"></span>
+        <span class="boot-corner boot-corner--bl" style="bottom:8px;left:8px;"></span>
+        <span class="boot-corner boot-corner--br" style="bottom:8px;right:8px;"></span>
+        <div class="map-hud-readout">
+          <div class="boot-hud-label">RICOGNIZIONE — TERRENO</div>
+          <div class="map-hud-value" id="hudTerreno">PANORAMICA TRACCIATO</div>
+          <div class="map-hud-sub">
+            <span id="hudCoords">LEH → HEMIS NP → LEH</span>
+            <span>·</span>
+            <span id="hudStep">OVERVIEW</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="route-cards-col">
+      <div class="day-card" data-step="0">
+        <div class="route-card">
+          <span class="route-dot">—</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Lo Hemis National Park</h3><span class="route-badge">Overview</span></div>
+            <p>La mappa mostra l'intero anello, da Leh a Leh passando per la Markha Valley. Scorri per entrare nelle singole tappe.</p>
+            <span class="route-scroll-hint">↓ Scorri per iniziare</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="1">
+        <div class="route-card">
+          <span class="route-dot">01</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Rumbak</h3><span class="route-badge">Start</span></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">9 km</span>
+              <span class="route-stat route-stat--elevation">+500 m</span>
+            </div>
+            <p>Dopo l'acclimatazione a Leh (3.500 m), si entra nello Hemis National Park verso il primo villaggio in quota.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="2">
+        <div class="route-card">
+          <span class="route-dot">02</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Ganda La Base Camp</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">9 km</span>
+              <span class="route-stat route-stat--elevation">+500 m</span>
+            </div>
+            <p>Salita al campo base del primo passo, a 4.500 m — la notte più alta finora.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="3">
+        <div class="route-card">
+          <span class="route-dot">03</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Skiu</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">11 km</span>
+              <span class="route-stat route-stat--elevation">+400 m</span>
+            </div>
+            <p>Il Ganda La, 4.900 m: il primo dei due grandi passi, seguito da una lunga discesa nella valle del Markha.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="4">
+        <div class="route-card">
+          <span class="route-dot">04</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Markha</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">11 km</span>
+              <span class="route-stat route-stat--elevation">+500 m</span>
+            </div>
+            <p>Il villaggio più grande della valle, con il suo monastero: campi terrazzati e case in pietra e fango.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="5">
+        <div class="route-card">
+          <span class="route-dot">05</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Hankar</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">8 km</span>
+              <span class="route-stat route-stat--elevation">+300 m</span>
+            </div>
+            <p>L'ultimo villaggio della valle, con le rovine di un antico forte: da qui si risale verso gli alpeggi d'alta quota.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="6">
+        <div class="route-card">
+          <span class="route-dot">06</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Nimaling</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">6 km</span>
+              <span class="route-stat route-stat--elevation">+600 m</span>
+            </div>
+            <p>4.700 m, la notte più alta di tutta la spedizione: un alpeggio ai piedi del Kang Yatse (6.400 m).</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="7">
+        <div class="route-card">
+          <span class="route-dot">07</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Shangsumdo</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">13 km</span>
+              <span class="route-stat route-stat--elevation">+500 m</span>
+            </div>
+            <p>Il Kongmaru La, 5.200 m — il punto più alto del trek — seguito dalla discesa più lunga di tutto il percorso.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="8">
+        <div class="route-card">
+          <span class="route-dot">08</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Leh</h3><span class="route-badge">Finish</span></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">3 km</span>
+              <span class="route-stat route-stat--elevation">+30 m</span>
+            </div>
+            <p>Ultimo tratto a piedi fino al trasferimento su strada che chiude l'anello a Leh.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="9">
+        <div class="route-card">
+          <span class="route-dot">—</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Il trek completo</h3><span class="route-badge">Totale</span></div>
+            <p>Da Leh a Leh, attraverso lo Hemis National Park e due passi oltre i 4.900 m, in un unico itinerario.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="elevation-block">
+    <span class="dossier-countdown-label">Profilo altimetrico · dislivello cumulato</span>
+    <div id="elevationProfile"></div>
+  </div>
+</section>
+
+<section class="dossier-trust reveal" id="informazioni">
+  <div class="section-head">
+    <span class="eyebrow">Prima di partire</span>
+    <h2>Informazioni pratiche</h2>
+    <p>La spedizione è ancora in fase di progettazione: quota e data definitiva verranno confermate più avanti.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <span class="trust-card-tag">Il percorso</span>
+      <p>
+        Le tappe di questo dossier seguono l'itinerario classico via Ganda La e Kongmaru La, tra i più praticati e documentati del Ladakh.
+        Km e altitudini vengono da più operatori di trekking concordanti; il dislivello per tappa è stimato, non rilevato di persona — verrà affinato con un sopralluogo reale.
+      </p>
+      <span class="trust-source">Fonti: Kashmir Treks, Much Better Adventures, Trek The Himalayas — 2026.</span>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Documenti richiesti</span>
+      <p>
+        Passaporto con validità residua di almeno 6 mesi, e-Visa turistico indiano (da richiedere online prima della partenza) e un Inner Line Permit (ILP) per l'accesso allo Hemis National Park — un permesso specifico per stranieri, che l'organizzazione gestisce in loco.
+      </p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Livello richiesto</span>
+      <p>
+        Difficoltà ●●●●● (5/5) — non per la lunghezza delle tappe (max 13 km/giorno) ma per la quota: si dorme fino a 4.700 m e si superano due passi oltre i 4.900 m.
+        Il mal di montagna acuto (AMS) è un rischio reale: il programma prevede giorni di acclimatazione a Leh (3.500 m) prima di entrare in quota. Non è un trekking per chi non ha mai affrontato l'alta quota.
+      </p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Salute e assicurazione</span>
+      <p>
+        <!-- DA CONFERMARE -->
+        Nessuna vaccinazione obbligatoria per l'Italia verso l'India in questo contesto, ma è fortemente consigliata un'assicurazione di viaggio con copertura per alta quota ed eventuale evacuazione — dettagli e requisiti specifici da confermare più avanti.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="dossier-quota reveal" id="quota">
+  <div class="section-head">
+    <span class="eyebrow">La quota</span>
+    <h2>Ancora in fase di definizione</h2>
+    <p>Non ho ancora fissato una quota definitiva per questa spedizione. Qui sotto trovi una bozza indicativa di cosa prevedo includere — non un prezzo, non ancora un impegno definitivo.</p>
+  </div>
+
+  <div class="quota-accordions">
+    <div class="accordion">
+      <button class="accordion-trigger" aria-expanded="false" aria-controls="panelComprende">
+        <span class="accordion-label">Bozza: la quota comprenderà</span>
+        <span class="accordion-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="accordion-panel" id="panelComprende" hidden>
+        <ul class="quota-list">
+          <li>Volo andata/ritorno fino a Leh (o tratta equivalente)</li>
+          <li>Inner Line Permit e permessi per lo Hemis National Park</li>
+          <li>Pernottamento (hotel a Leh + campo tenda lungo il trek) con pasti inclusi durante il trekking</li>
+          <li>Guida locale esperta e staff di supporto (portatori/muli per i bagagli)</li>
+          <li>Giorni di acclimatazione a Leh prima del trekking</li>
+          <li>Assicurazione di viaggio con copertura alta quota</li>
+        </ul>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-trigger" aria-expanded="false" aria-controls="panelNonComprende">
+        <span class="accordion-label">Bozza: la quota non comprenderà</span>
+        <span class="accordion-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="accordion-panel" id="panelNonComprende" hidden>
+        <ul class="quota-list">
+          <li>e-Visa turistico indiano (a carico del partecipante)</li>
+          <li>Attrezzatura tecnica personale da trekking in alta quota</li>
+          <li>Spese personali e souvenir</li>
+          <li>Pasti fuori dal programma a Leh</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dossier-form reveal" id="candidatura">
+  <div class="dossier-cta-banner">
+    <span>Dossier in progettazione · partenza proposta 17 luglio 2027</span>
+    <strong>Segnala il tuo interesse per questa spedizione</strong>
+  </div>
+
+  <div class="section-head">
+    <span class="eyebrow">Interesse</span>
+    <h2>Vuoi essere aggiornato?</h2>
+    <p>Quota e data definitiva non sono ancora confermate: compila il form per essere tra i primi a saperlo, non è un impegno a partecipare.</p>
+  </div>
+
+  <form class="dossier-form-grid" id="formCandidatura">
+    <div class="form-group">
+      <label for="fieldNome">Nome</label>
+      <input type="text" id="fieldNome" name="nome" placeholder="Es. Marco" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldCognome">Cognome</label>
+      <input type="text" id="fieldCognome" name="cognome" placeholder="Es. Rossi" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEta">Età</label>
+      <input type="number" id="fieldEta" name="eta" placeholder="Es. 28" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldTelefono">Telefono</label>
+      <input type="tel" id="fieldTelefono" name="telefono" placeholder="+39 333 000 0000" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEmail">Email</label>
+      <input type="email" id="fieldEmail" name="email" placeholder="marco@email.com" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEsperienza">Esperienza outdoor</label>
+      <select id="fieldEsperienza" name="esperienza" required>
+        <option value="">Seleziona livello</option>
+        <option value="base">Base — qualche uscita in bici o trekking</option>
+        <option value="intermedio">Intermedio — viaggi in autonomia, più giorni</option>
+        <option value="avanzato">Avanzato — spedizioni, gravel/MTB lunghe distanze</option>
+      </select>
+    </div>
+    <div class="form-group full">
+      <label for="fieldMotivazione">Motivazione</label>
+      <textarea id="fieldMotivazione" name="motivazione" rows="4" placeholder="Raccontami perché ti interessa..." required></textarea>
+    </div>
+
+    <div class="form-group full form-consent">
+      <label class="consent-label">
+        <input type="checkbox" id="fieldConsenso" name="consenso" required>
+        <span>Ho letto e accetto <a href="../../privacy.html" target="_blank" rel="noopener">l'informativa sulla privacy</a>.</span>
+      </label>
+    </div>
+
+    <!-- honeypot anti-spam: campo fuori schermo, invisibile e ignorato da
+         utenti/screen reader reali, ma spesso compilato dai bot che riempiono
+         ogni input che trovano. Se arriva valorizzato, l'invio viene bloccato
+         in silenzio (vedi initForm in dossier.js). -->
+    <div class="form-group hp-field" aria-hidden="true">
+      <label for="fieldWebsite">Sito web</label>
+      <input type="text" id="fieldWebsite" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary" id="btnCandidatura">Segnala il tuo interesse</button>
+    </div>
+    <div id="formFeedback" class="form-feedback" aria-live="polite"></div>
+  </form>
+</section>
+
+<section class="dossier-back reveal">
+  <a href="../../index.html#experiences" class="dossier-back-link">← Torna alle experiences</a>
+</section>
+
+<footer class="footer" id="contact">
+  <span>OECHSLIN OUTDOOR</span>
+  <nav class="footer-nav">
+    <a href="../../index.html#experiences">Experiences</a>
+    <a href="../../index.html#map">Mappa</a>
+    <a href="../../index.html#field-notes">Field Notes</a>
+    <a href="../../index.html#about">About</a>
+  </nav>
+  <span>© 2026</span>
+</footer>
+
+<script src="data.js"></script>
+<script src="../../dossier.js"></script>
+</body>
+</html>

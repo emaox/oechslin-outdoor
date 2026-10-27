@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutte le spedizioni — Oechslin Outdoor</title>
+<meta name="description" content="L'archivio completo e numerato delle spedizioni Oechslin Outdoor: OX-001, OX-002 e le prossime in progettazione.">
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<link rel="canonical" href="https://oechslinoutdoor.com/expeditions/">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oechslinoutdoor.com/expeditions/">
+<meta property="og:title" content="Tutte le spedizioni — Oechslin Outdoor">
+<meta property="og:description" content="L'archivio completo e numerato delle spedizioni Oechslin Outdoor: OX-001, OX-002 e le prossime in progettazione.">
+<meta property="og:image" content="https://oechslinoutdoor.com/og-image.png">
+
+<link rel="stylesheet" href="../fonts.css">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="../index.html" class="topbar-mark">OX</a>
+
+  <nav class="main-nav" id="mainNav">
+    <a href="../index.html#experiences">Experiences</a>
+    <a href="../index.html#map">Mappa</a>
+    <a href="../index.html#field-notes">Field Notes</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<section class="exp-index-hero">
+  <span class="eyebrow">Archivio</span>
+  <h1>Tutte le spedizioni OX</h1>
+  <p>Ogni spedizione ha un codice e una tappa nel tempo. Alcune sono già dossier pronti, altre sono ancora in progettazione — le trovi comunque qui, numerate, così come nascono.</p>
+</section>
+
+<div class="exp-list" id="expList"></div>
+
+<footer class="footer" id="contact">
+  <span>OECHSLIN OUTDOOR</span>
+  <nav class="footer-nav">
+    <a href="../index.html#experiences">Experiences</a>
+    <a href="../index.html#map">Mappa</a>
+    <a href="../index.html#field-notes">Field Notes</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+  <span>© 2026</span>
+</footer>
+
+<script src="../expeditions-data.js"></script>
+<script>
+  document.getElementById('navToggle').addEventListener('click', () => {
+    const nav = document.getElementById('mainNav');
+    const open = nav.classList.toggle('open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  /* stessa logica del carosello in home: card foto-led se c'è un
+     dossier pronto, stato onesto "in fase di progettazione" se no —
+     nessuna spedizione viene nascosta, solo trattata per quello che è. */
+  function renderExpeditionList(){
+    const list = document.getElementById('expList');
+    EXPEDITIONS.filter(e => !e.isOrigin).forEach(exp => {
+      // "ready" = esiste un dossier reale da aprire (href), indipendentemente
+      // dal fatto che ci sia già una foto o solo dati/percorso di ricerca
+      const ready = !!exp.href;
+      const hasPhoto = !!exp.photo;
+      const row = document.createElement(ready ? 'a' : 'div');
+      row.className = 'exp-row reveal' + (ready ? ' exp-row--ready' : ' exp-row--pending');
+      row.id = exp.code;
+      if(ready) row.href = '../' + exp.href;
+
+      const mediaHTML = hasPhoto
+        ? `<div class="exp-row-media"><img src="../${exp.photo}" alt="${exp.title}"></div>`
+        : `<div class="exp-row-media exp-row-media--placeholder" aria-hidden="true">${exp.code}</div>`;
+
+      let statsOrStatus = '<span class="exp-row-status">In fase di progettazione</span>';
+      if(exp.stats){
+        const s = exp.stats;
+        const difficultyDots = '●'.repeat(s.difficulty) + '○'.repeat(5 - s.difficulty);
+        statsOrStatus = `<div class="exp-row-stats">${s.km} KM · ${s.elevation.toLocaleString('it-IT')} M D+ · ${s.stages} TAPPE · ${difficultyDots}</div>`;
+        if(ready) statsOrStatus += `<span class="exp-row-link">Apri dossier →</span>`;
+      }
+
+      row.innerHTML = `
+        ${mediaHTML}
+        <div class="exp-row-text">
+          <span class="exp-row-code">${exp.code}</span>
+          <h2>${exp.title}</h2>
+          <span class="exp-row-sub">${exp.subtitle}</span>
+          <p class="exp-row-desc">${exp.description}</p>
+          ${statsOrStatus}
+        </div>
+      `;
+      list.appendChild(row);
+    });
+  }
+
+  function initScrollReveal(){
+    const targets = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.12 });
+    targets.forEach(t => observer.observe(t));
+  }
+
+  renderExpeditionList();
+  initScrollReveal();
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oechslin Outdoor — Viaggi outdoor progettati nei dettagli</title>
+<meta name="description" content="Oechslin Outdoor progetta trekking, bikepacking e spedizioni outdoor su misura, partendo da una conoscenza reale del territorio.">
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<link rel="canonical" href="https://oechslinoutdoor.com/">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oechslinoutdoor.com/">
+<meta property="og:title" content="Oechslin Outdoor — Viaggi outdoor progettati nei dettagli">
+<meta property="og:description" content="Oechslin Outdoor progetta trekking, bikepacking e spedizioni outdoor su misura, partendo da una conoscenza reale del territorio.">
+<!-- TODO: og:image è un placeholder generico — sostituire con una foto reale quando disponibile -->
+<meta property="og:image" content="https://oechslinoutdoor.com/og-image.png">
+
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="boot-overlay" id="bootOverlay">
+
+  <div class="boot-ruler boot-ruler--top" id="bootRulerTop" aria-hidden="true"></div>
+  <div class="boot-ruler boot-ruler--bottom" id="bootRulerBottom" aria-hidden="true"></div>
+
+  <div class="boot-corner boot-corner--tl"></div>
+  <div class="boot-corner boot-corner--tr"></div>
+  <div class="boot-corner boot-corner--bl"></div>
+  <div class="boot-corner boot-corner--br"></div>
+
+  <div class="boot-hud boot-hud--tl" aria-hidden="true">
+    <div class="boot-hud-label">POSITION</div>
+    <div id="bootCoord">45.8206°N&nbsp;&nbsp;8.4028°E</div>
+  </div>
+  <div class="boot-hud boot-hud--tr" aria-hidden="true">
+    <div class="boot-hud-label">SYS.TIME</div>
+    <div>T+<span id="bootTime">00:00.0</span></div>
+  </div>
+  <div class="boot-hud boot-hud--bl" aria-hidden="true">EXPEDITION REGISTRY / OX</div>
+  <div class="boot-hud boot-hud--br" id="bootStatus" aria-hidden="true">STANDBY</div>
+
+  <div class="boot-ticket" id="bootTicket" aria-hidden="true">
+    <div class="boot-ticket-main">
+      <div class="boot-ticket-row boot-ticket-row--top">
+        <span class="boot-ticket-code" id="ticketCode">OX-000</span>
+        <span class="boot-ticket-tag">EXPEDITION PASS</span>
+      </div>
+      <div class="boot-ticket-title" id="ticketTitle">LAGO D'ORTA</div>
+      <div class="boot-ticket-route">
+        <span id="ticketFrom">LAGO D'ORTA</span>
+        <span class="boot-ticket-route-line"></span>
+        <span id="ticketTo">ORIGIN</span>
+      </div>
+      <div class="boot-ticket-coord" id="ticketCoord">45.8206°N&nbsp;&nbsp;8.4028°E</div>
+    </div>
+    <div class="boot-ticket-perf" aria-hidden="true"></div>
+    <div class="boot-ticket-stub">
+      <span class="boot-ticket-stub-label">STUB</span>
+      <span class="boot-ticket-stub-ox" id="ticketStubOx">OX</span>
+      <span class="boot-ticket-stub-final" id="ticketStubFinal">OECHSLIN OUTDOOR</span>
+    </div>
+  </div>
+
+  <button class="boot-skip" id="bootSkip">Skip →</button>
+</div>
+
+
+<header class="topbar">
+  <span class="topbar-mark">OX</span>
+
+  <nav class="main-nav" id="mainNav">
+    <a href="#experiences">Experiences</a>
+    <a href="#map">Mappa</a>
+    <a href="#field-notes">Field Notes</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<section class="hero" style="background-image:url('img/hero-bg.jpg');">
+  <div class="hero-content">
+    <span class="hero-ox-tag" id="heroOxTag">OX</span>
+    <span class="hero-eyebrow neon-text" id="heroEyebrow">Expedition Operating System</span>
+    <h1 id="heroName" class="neon-text neon-text--wordmark">OECHSLIN OUTDOOR</h1>
+    <p id="heroTagline" class="neon-text">Trekking, bikepacking, spedizioni outdoor: progettati nei minimi dettagli. Mai lasciati al caso.</p>
+    <div class="scroll-hint visible" id="scrollHint"><span>SCROLL</span><span class="scroll-line"></span></div>
+  </div>
+</section>
+
+<section class="manifesto reveal">
+  <div class="manifesto-frame" style="background-image:url('img/cammino_1.jpg');">
+    <span class="eyebrow">Manifesto</span>
+    <p>Ogni percorso nasce da una progettazione attenta del territorio.<br>
+    Non parto da una destinazione: parto da come vuoi viverla.<br>
+    Ogni spedizione ha un perché, prima ancora di avere un itinerario.</p>
+  </div>
+</section>
+
+<section class="experiences reveal" id="experiences">
+  <div class="section-head">
+    <span class="eyebrow">Experiences</span>
+    <h2>Ogni spedizione ha una firma. La tua.</h2>
+  </div>
+  <div class="exp-carousel" id="expCarousel">
+    <div class="exp-grid" id="expGrid"></div>
+  </div>
+</section>
+
+<section class="map-section reveal" id="map">
+  <div class="map-grid">
+    <div class="map-text">
+      <span class="eyebrow">Mappa</span>
+      <h2>Esplora le rotte sul campo</h2>
+      <p>Trascina il globo, zoomalo, tocca una rotta: ogni tratta ti porta al viaggio. Ogni percorso parte da Lago d'Orta, l'origine del progetto.</p>
+    </div>
+
+    <div class="globe-wrap" id="globeWrap">
+      <canvas class="globe-canvas" id="globeCanvas"></canvas>
+      <div class="globe-label" id="globeLabel">
+        <span class="gl-title">—</span>
+        <span class="gl-meta">—</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section reveal" id="about">
+  <div class="about-photo">
+    <img src="img/isola_orta.jpg" alt="Isola di San Giulio, Lago d'Orta">
+    <div class="about-photo-caption">
+      <span class="about-photo-code">OX-000</span>
+      <span class="about-photo-label">Lago d'Orta — dove tutto ha inizio</span>
+    </div>
+  </div>
+  <div class="about-inner">￼
+    <span class="eyebrow">About</span>
+    <h2>Perché esiste Oechslin Outdoor</h2>
+    <p>C'è un lago che conosco da sempre, e un giorno ho iniziato a guardarlo diversamente: non più solo un posto dove sono cresciuto, ma il punto da cui si può partire per capire un territorio, prima di attraversarne altri. Da lì è nata l'idea di progettare viaggi come si progetta qualcosa a cui si tiene davvero — con cura, con tempo, senza fretta di riempire un itinerario. Oechslin Outdoor è questo: il tentativo di trattare ogni spedizione come merita, partendo da un rapporto vero con i luoghi, non da un catalogo.</p>
+  </div>
+</section>
+
+<section class="founder-section reveal" id="founder">
+  <div class="founder-grid">
+    <div class="founder-portrait" aria-hidden="true">
+      <video class="founder-video" id="founderVideo" src="video/ema_video.mp4" muted playsinline preload="metadata"></video>
+    </div>
+    <div class="founder-text">
+      <span class="eyebrow">Chi sono</span>
+      <h2>Emanuele Oechslin</h2>
+      <p>Sono cresciuto sul Lago d'Orta, e da lì è partita gran parte di quello che mi ha portato a costruire questo progetto — comprese le uscite come consigliere in un team di canottaggio locale, che mi hanno insegnato a leggere un territorio con calma, prima ancora di attraversarlo.</p>
+      <p>Il Cammino di Santiago è stata l'esperienza che ha cambiato il modo in cui penso un viaggio: da qualcosa da consumare velocemente, a qualcosa da progettare con attenzione. Oechslin Outdoor nasce da questo percorso — non un'agenzia che vende pacchetti, ma un modo di costruire spedizioni che parte da una conoscenza reale dei luoghi.</p>
+    </div>
+  </div>
+</section>
+
+<section class="field-notes reveal" id="field-notes">
+  <div class="section-head">
+    <span class="eyebrow">Field Notes</span>
+    <h2>Storie dal territorio</h2>
+  </div>
+  <div class="notes-grid" id="notesGrid"></div>
+</section>
+
+<footer class="footer" id="contact">
+  <span>OECHSLIN OUTDOOR</span>
+  <nav class="footer-nav">
+    <a href="#experiences">Experiences</a>
+    <a href="#map">Mappa</a>
+    <a href="#field-notes">Field Notes</a>
+    <a href="#about">About</a>
+  </nav>
+  <span>© 2026</span>
+  <button class="replay-intro-btn">Replay intro ↺</button>
+</footer>
+
+<script src="land_data.js"></script>
+<script src="expeditions-data.js"></script>
+<script src="boot-intro.js"framer motion></script>
+<script src="script.js"></script>
+</body>
+</html>

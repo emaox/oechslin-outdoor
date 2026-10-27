@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OX-001 · Atlas Crossing — Oechslin Outdoor</title>
+<meta name="description" content="Dossier della spedizione Atlas Crossing: 598 km e 5.150 m di dislivello dall'Alto Atlante alle dune del Sahara, in sette tappe.">
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<link rel="canonical" href="https://oechslinoutdoor.com/expeditions/ox-001-atlas-crossing/">
+
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+
+<!-- TODO: sostituire https://oechslinoutdoor.com con il dominio definitivo -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oechslinoutdoor.com/expeditions/ox-001-atlas-crossing/">
+<meta property="og:title" content="OX-001 · Atlas Crossing — Oechslin Outdoor">
+<meta property="og:description" content="Dossier della spedizione Atlas Crossing: 598 km e 5.150 m di dislivello dall'Alto Atlante alle dune del Sahara, in sette tappe.">
+<!-- TODO: og:image è un placeholder generico — sostituire con una foto reale della spedizione quando disponibile -->
+<meta property="og:image" content="https://oechslinoutdoor.com/og-image.png">
+
+<link rel="stylesheet" href="../../fonts.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../dossier.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="../../index.html" class="topbar-mark">OX</a>
+
+  <nav class="main-nav" id="mainNav">
+    <a href="../../index.html#experiences">Experiences</a>
+    <a href="../../index.html#map">Mappa</a>
+    <a href="../../index.html#field-notes">Field Notes</a>
+    <a href="../../index.html#about">About</a>
+    <a href="../../index.html#contact">Contact</a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<section class="dossier-hero" style="background-image:url('img/hero.jpg');">
+  <div class="dossier-hero-content">
+    <span class="exp-code">OX-001</span>
+    <h1 class="glitch-swap" data-text-it="Atlas Crossing" data-text-ar="عبور الأطلس" data-text="Atlas Crossing">Atlas Crossing</h1>
+    <span class="hero-eyebrow dossier-hero-sub">Marocco · Bikepacking Expedition</span>
+  </div>
+</section>
+
+<section class="dossier-countdown reveal">
+  <span class="dossier-countdown-label">Prossima partenza · 17 aprile 2027</span>
+  <div class="countdown" aria-label="Conto alla rovescia per la partenza">
+    <div class="countdown-card"><strong id="countdownDays">00</strong><span>Giorni</span></div>
+    <div class="countdown-card"><strong id="countdownHours">00</strong><span>Ore</span></div>
+    <div class="countdown-card"><strong id="countdownMinutes">00</strong><span>Minuti</span></div>
+    <div class="countdown-card"><strong id="countdownSeconds">00</strong><span>Secondi</span></div>
+  </div>
+</section>
+
+<div class="dossier-alert-banner-wrap">
+  <a href="#candidatura" class="dossier-alert-banner">Candidati ora →</a>
+</div>
+
+<section class="dossier-stats reveal">
+  <div class="dossier-stats-row">
+    <div class="dossier-stat"><strong>598</strong><span>km</span></div>
+    <div class="dossier-stat"><strong>5.150</strong><span>m D+</span></div>
+    <div class="dossier-stat"><strong>7</strong><span>tappe</span></div>
+    <div class="dossier-stat"><strong>3</strong><span>ecosistemi</span></div>
+    <div class="dossier-stat"><strong>●●●●○</strong><span>difficoltà</span></div>
+  </div>
+</section>
+
+<section class="dossier-spirit reveal">
+  <div class="about-inner">
+    <span class="eyebrow">Lo spirito della spedizione</span>
+    <h2>Attraversare, non osservare</h2>
+    <p>Atlas Crossing nasce dalla volontà di esplorare il Marocco attraverso il movimento, seguendo un percorso che collega le montagne dell'Alto Atlante alle dune del Sahara.</p>
+    <p>Non è una gara e non è una vacanza itinerante. È una traversata pensata per vivere il territorio in modo diretto, affrontando ogni giorno nuove distanze, nuovi dislivelli e ambienti completamente diversi tra loro.</p>
+    <p>In sette tappe attraverso villaggi montani, antiche kasbah, gole spettacolari e altipiani desertici. I 598 chilometri e i 5.150 metri di dislivello sono la dimensione fisica della spedizione — la parte più importante si trova tra una tappa e l'altra, nell'adattarsi al percorso e osservare il territorio con tempi diversi da quelli del turismo tradizionale.</p>
+    <p><strong>Alcune destinazioni non si comprendono osservandole da lontano. Bisogna attraversarle.</strong></p>
+  </div>
+</section>
+
+<section class="dossier-route" id="percorso">
+  <div class="section-head">
+    <span class="eyebrow">Percorso</span>
+    <h2>Sette tappe, tre ecosistemi</h2>
+  </div>
+
+  <div class="route-preview" aria-hidden="true">
+    <span class="route-preview-item">01 Marrakech</span>
+    <span class="route-preview-item">02 Telouet</span>
+    <span class="route-preview-item">03 Aït Benhaddou</span>
+    <span class="route-preview-item">04 Gole del Dades</span>
+    <span class="route-preview-item">05 Gole del Todra</span>
+    <span class="route-preview-item">06 Erfoud</span>
+    <span class="route-preview-item">07 Merzouga</span>
+  </div>
+
+  <div class="route-layout">
+    <div class="route-map-col">
+      <div id="boundedMap"></div>
+      <div class="map-hud" aria-hidden="true">
+        <span class="boot-corner boot-corner--tl" style="top:8px;left:8px;"></span>
+        <span class="boot-corner boot-corner--tr" style="top:8px;right:8px;"></span>
+        <span class="boot-corner boot-corner--bl" style="bottom:8px;left:8px;"></span>
+        <span class="boot-corner boot-corner--br" style="bottom:8px;right:8px;"></span>
+        <div class="map-hud-readout">
+          <div class="boot-hud-label">RICOGNIZIONE — TERRENO</div>
+          <div class="map-hud-value" id="hudTerreno">PANORAMICA TRACCIATO</div>
+          <div class="map-hud-sub">
+            <span id="hudCoords">MARRAKECH → MERZOUGA</span>
+            <span>·</span>
+            <span id="hudStep">OVERVIEW</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="route-cards-col">
+      <div class="day-card" data-step="0">
+        <div class="route-card">
+          <span class="route-dot">—</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>L'inizio della traversata</h3><span class="route-badge">Overview</span></div>
+            <p>La mappa mostra l'intero tracciato. Scorri per entrare nelle singole tappe, dai passi montani fino alle dune del deserto.</p>
+            <span class="route-scroll-hint">↓ Scorri per iniziare</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="1">
+        <div class="route-card">
+          <span class="route-dot">01</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Marrakech</h3><span class="route-badge">Start</span></div>
+            <p>Briefing e messa a punto dei mezzi nella Medina, prima del via.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="2">
+        <div class="route-card">
+          <span class="route-dot">02</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Telouet</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">78 km</span>
+              <span class="route-stat route-stat--elevation">+1.650 m</span>
+            </div>
+            <p>Prima ascesa verso l'Alto Atlante: piste dure, pendenze costanti, quota che sale in fretta.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="3">
+        <div class="route-card">
+          <span class="route-dot">03</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Aït Benhaddou</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">62 km</span>
+              <span class="route-stat route-stat--elevation">+450 m</span>
+            </div>
+            <p>Discesa lungo il canyon della Valle dell'Ounila, tra rocce rosse e villaggi fortificati di fango.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="4">
+        <div class="route-card">
+          <span class="route-dot">04</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Gole del Dades</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">110 km</span>
+              <span class="route-stat route-stat--elevation">+1.900 m</span>
+            </div>
+            <p>La tappa più dura: i tornanti in quota sulle pareti della gola.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="5">
+        <div class="route-card">
+          <span class="route-dot">05</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Gole del Todra</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">85 km</span>
+              <span class="route-stat route-stat--elevation">+800 m</span>
+            </div>
+            <p>Traversata tecnica su fondo sconnesso, chiusa dentro le pareti verticali del Todra.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="6">
+        <div class="route-card">
+          <span class="route-dot">06</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Erfoud</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">135 km</span>
+              <span class="route-stat route-stat--elevation">+250 m</span>
+            </div>
+            <p>Trasferimento lungo e veloce: le montagne lasciano spazio ai primi falsipiani desertici.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="7">
+        <div class="route-card">
+          <span class="route-dot">07</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Merzouga</h3></div>
+            <div class="route-stats">
+              <span class="route-stat route-stat--km">50 km</span>
+              <span class="route-stat route-stat--elevation">+150 m</span>
+            </div>
+            <p>Le piste sabbiose portano alle dune dell'Erg Chebbi, alle porte del Sahara.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-card" data-step="8">
+        <div class="route-card">
+          <span class="route-dot">—</span>
+          <div class="route-content">
+            <div class="route-content-head"><h3>Il viaggio completo</h3><span class="route-badge">Totale</span></div>
+            <p>Dall'Alto Atlante alle sabbie del Sahara: sette tappe racchiuse in un unico itinerario.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="elevation-block">
+    <span class="dossier-countdown-label">Profilo altimetrico · dislivello cumulato</span>
+    <div id="elevationProfile"></div>
+  </div>
+</section>
+
+<section class="dossier-gallery reveal">
+  <div class="section-head">
+    <span class="eyebrow">Ricognizione</span>
+    <h2>Immagini dal sopralluogo</h2>
+  </div>
+  <div class="gallery-strip">
+    <img src="img/gallery-01.jpg" alt="Paesaggi dell'Alto Atlante durante il sopralluogo" loading="lazy">
+    <img src="img/gallery-02.jpg" alt="Tracciati e piste montane in Marocco" loading="lazy">
+    <img src="img/gallery-03.jpg" alt="Il deserto alle porte del Sahara" loading="lazy">
+    <img src="img/gallery-04.jpg" alt="Bivacco sotto le stelle dell'Erg Chebbi" loading="lazy">
+  </div>
+</section>
+
+<section class="dossier-trust reveal" id="informazioni">
+  <div class="section-head">
+    <span class="eyebrow">Prima di partire</span>
+    <h2>Informazioni pratiche</h2>
+    <p>Tutto quello che serve sapere prima di candidarti — i dettagli definitivi ti arrivano dopo la conferma dell'iscrizione.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <span class="trust-card-tag">Voli & Trasporti</span>
+      <p>
+        Il volo andata/ritorno Milano Malpensa → Marrakech è incluso nella quota (vedi "La quota comprende" più sotto).
+        Ritrovo presso l'Aeroporto di Milano Malpensa 3 ore prima della partenza del volo; l'orario esatto e il terminal verranno confermati via email dopo la conferma dell'iscrizione.
+      </p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Documenti richiesti</span>
+      <p>
+        Per l'ingresso in Marocco è obbligatorio il passaporto: la sola carta d'identità non è accettata, anche se in corso di validità.
+        Il passaporto deve avere una validità residua di almeno 6 mesi dalla data di rientro e almeno una pagina libera per i timbri.
+        Nessun visto richiesto per cittadini italiani in soggiorno turistico fino a 90 giorni.
+        Nessuna vaccinazione obbligatoria; consigliata comunque un'assicurazione di viaggio con copertura medica (inclusa nella quota, vedi sotto).
+        Se non hai cittadinanza italiana, verifica i requisiti specifici per il tuo paese prima di candidarti.
+      </p>
+      <span class="trust-source">Fonte: Farnesina — Viaggiare Sicuri, aggiornato 2026.</span>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Livello richiesto</span>
+      <p>
+        Difficoltà ●●●●○ (4/5).
+        Serve una buona base di allenamento in bici su più giorni consecutivi e dimestichezza con percorsi sterrati/gravel in quota.
+        Non è una gara: il ritmo è pensato per il gruppo, ma bisogna arrivare preparati.
+      </p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Pagamento</span>
+      <p>
+        Acconto del 25% alla conferma dell'iscrizione — blocca il posto e il prezzo, che resta protetto da eventuali aumenti successivi.
+        Saldo dell'importo restante entro 30 giorni prima della partenza.
+        Al momento è accettato solo il bonifico bancario; le coordinate vengono inviate dopo la conferma della candidatura.
+      </p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-card-tag">Cancellazione</span>
+      <p>
+        In caso di ritiro, la penale è calcolata sui giorni che mancano alla partenza: oltre 60 giorni: trattenuta la sola quota di apertura pratica ·
+        da 59 a 30 giorni: 25% della quota · da 29 a 15 giorni: 50% · da 14 a 7 giorni: 75% · sotto i 7 giorni o mancata presentazione: 100%.
+        Il prezzo resta comunque bloccato dal momento della conferma, indipendentemente da eventuali aumenti successivi.
+        La spedizione parte con un massimo di 8 persone. Se il numero minimo necessario per partire (6) non viene raggiunto entro 45 giorni dalla partenza,
+        Oechslin Outdoor può annullare la spedizione con rimborso integrale di quanto versato.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="dossier-quota reveal" id="quota">
+  <div class="section-head">
+    <span class="eyebrow">La quota</span>
+    <h2>598 km tra Alto Atlante e Sahara</h2>
+    <p>Tutto ciò che serve per affrontare la traversata è incluso nel prezzo.</p>
+  </div>
+
+  <div class="quota-price-row">
+    <div class="quota-card quota-card--eb">
+      <div class="quota-card-head">
+        <span class="quota-badge">Early bird</span>
+        <span class="quota-card-note">Fino al 14 febbraio 2027</span>
+      </div>
+      <strong class="quota-amount">1.500 €</strong>
+      <p>Prenota entro la scadenza e risparmi 350 € sulla quota standard.</p>
+      <div class="countdown countdown--compact" aria-label="Tempo rimasto per lo sconto early bird">
+        <div class="countdown-card"><strong id="ebDays">00</strong><span>Giorni</span></div>
+        <div class="countdown-card"><strong id="ebHours">00</strong><span>Ore</span></div>
+        <div class="countdown-card"><strong id="ebMinutes">00</strong><span>Minuti</span></div>
+        <div class="countdown-card"><strong id="ebSeconds">00</strong><span>Secondi</span></div>
+      </div>
+    </div>
+    <div class="quota-card">
+      <div class="quota-card-head"><span class="quota-card-note">Quota standard</span></div>
+      <strong class="quota-amount">1.850 €</strong>
+      <p>A persona — spedizione limitata a 8 viaggiatori più la guida.</p>
+    </div>
+  </div>
+
+  <div class="quota-accordions">
+    <div class="accordion">
+      <button class="accordion-trigger" aria-expanded="false" aria-controls="panelComprende">
+        <span class="accordion-label">La quota comprende</span>
+        <span class="accordion-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="accordion-panel" id="panelComprende" hidden>
+        <ul class="quota-list">
+          <li>Volo andata e ritorno Milano Malpensa (MXP) → Marrakech (RAK)</li>
+          <li>Trasporto biciclette incluso nei voli</li>
+          <li>Alloggi per tutta la durata della spedizione</li>
+          <li>Supporto logistico completo e veicolo di assistenza</li>
+          <li>Assicurazione di viaggio medica e annullamento</li>
+          <li>Guida esperta locale</li>
+          <li>Documentazione tecnica e tracce GPS</li>
+          <li>Kit di pronto soccorso e beacon satellitare</li>
+          <li>Colazione e cena incluse</li>
+        </ul>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-trigger" aria-expanded="false" aria-controls="panelNonComprende">
+        <span class="accordion-label">La quota non comprende</span>
+        <span class="accordion-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="accordion-panel" id="panelNonComprende" hidden>
+        <ul class="quota-list">
+          <li>Visto di ingresso in Marocco (non richiesto per cittadini UE)</li>
+          <li>Pranzi e spese alimentari fuori dal programma</li>
+          <li>Spese personali e souvenir</li>
+          <li>Bicicletta personale (noleggio opzionale disponibile)</li>
+          <li>Abbigliamento tecnico personale</li>
+          <li>Trasferimenti privati non in programma</li>
+          <li>Mance e donazioni extra</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dossier-gear reveal" id="equipaggiamento">
+  <div class="section-head">
+    <span class="eyebrow">Equipaggiamento</span>
+    <h2>Cosa fornisco</h2>
+    <p>Tutto ciò che serve per affrontare la traversata in sicurezza, incluso nella quota.</p>
+  </div>
+  <div class="notes-grid">
+    <div class="note-card gear-card">
+      <svg class="gear-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="6" cy="17" r="3.4"/>
+        <circle cx="18" cy="17" r="3.4"/>
+        <path d="M6 17 L10.5 9.5 H14 L18 17 M10.5 9.5 L13.5 6 H16 M13.5 6 L10.5 17"/>
+      </svg>
+      <span class="note-tag">Bici</span>
+      <h3>Trekking / gravel</h3>
+      <p>Bici selezionate per il misto montagna-deserto, revisionate prima della partenza.</p>
+    </div>
+    <div class="note-card gear-card">
+      <svg class="gear-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 4 L21 19 H3 Z"/>
+        <path d="M12 4 L12 19"/>
+        <path d="M9.5 19 L12 13.5 L14.5 19"/>
+      </svg>
+      <span class="note-tag">Bivacco</span>
+      <h3>Tende ultraleggere</h3>
+      <p>Doppio strato, pensate per le notti in quota tra Atlante e altipiani.</p>
+    </div>
+    <div class="note-card gear-card">
+      <svg class="gear-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="7" width="18" height="13" rx="2"/>
+        <path d="M8 7 L9.5 4.5 H14.5 L16 7"/>
+        <circle cx="12" cy="13.5" r="3.6"/>
+      </svg>
+      <span class="note-tag">Documentazione</span>
+      <h3>Kit multimediale</h3>
+      <p>Action cam, supporti manubrio e kit fotografico per documentare il percorso.</p>
+    </div>
+    <div class="note-card gear-card">
+      <svg class="gear-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M15 9 L11 13 L9 15 L13 11 Z" fill="currentColor" stroke="none"/>
+      </svg>
+      <span class="note-tag">Orientamento</span>
+      <h3>Navigazione GPS</h3>
+      <p>GPS dedicato con tracce precaricate e mappe offline, nessuna dipendenza dalla rete.</p>
+    </div>
+    <div class="note-card gear-card">
+      <svg class="gear-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2z"/>
+      </svg>
+      <span class="note-tag">Sicurezza</span>
+      <h3>Kit riparazioni</h3>
+      <p>Kit riparazioni completo fornito a ogni partecipante, più assistenza sul percorso.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dossier-form reveal" id="candidatura">
+  <div class="dossier-cta-banner">
+    <span>8 posti · prossima partenza 17 aprile 2027</span>
+    <strong>Candidati per questa spedizione</strong>
+  </div>
+
+  <div class="section-head">
+    <span class="eyebrow">Candidatura</span>
+    <h2>Vuoi essere della partita?</h2>
+    <p>Compila il form qui sotto — ti risponderò via email con il programma completo.</p>
+  </div>
+
+  <form class="dossier-form-grid" id="formCandidatura">
+    <div class="form-group">
+      <label for="fieldNome">Nome</label>
+      <input type="text" id="fieldNome" name="nome" placeholder="Es. Marco" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldCognome">Cognome</label>
+      <input type="text" id="fieldCognome" name="cognome" placeholder="Es. Rossi" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEta">Età</label>
+      <input type="number" id="fieldEta" name="eta" placeholder="Es. 28" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldTelefono">Telefono</label>
+      <input type="tel" id="fieldTelefono" name="telefono" placeholder="+39 333 000 0000" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEmail">Email</label>
+      <input type="email" id="fieldEmail" name="email" placeholder="marco@email.com" required>
+    </div>
+    <div class="form-group">
+      <label for="fieldEsperienza">Esperienza outdoor</label>
+      <select id="fieldEsperienza" name="esperienza" required>
+        <option value="">Seleziona livello</option>
+        <option value="base">Base — qualche uscita in bici o trekking</option>
+        <option value="intermedio">Intermedio — viaggi in autonomia, più giorni</option>
+        <option value="avanzato">Avanzato — spedizioni, gravel/MTB lunghe distanze</option>
+      </select>
+    </div>
+    <div class="form-group full">
+      <label for="fieldMotivazione">Motivazione</label>
+      <textarea id="fieldMotivazione" name="motivazione" rows="4" placeholder="Raccontami perché vuoi partecipare..." required></textarea>
+    </div>
+
+    <div class="form-group full form-consent">
+      <label class="consent-label">
+        <input type="checkbox" id="fieldConsenso" name="consenso" required>
+        <span>Ho letto e accetto <a href="../../privacy.html" target="_blank" rel="noopener">l'informativa sulla privacy</a>.</span>
+      </label>
+    </div>
+
+    <!-- honeypot anti-spam: campo fuori schermo, invisibile e ignorato da
+         utenti/screen reader reali, ma spesso compilato dai bot che riempiono
+         ogni input che trovano. Se arriva valorizzato, l'invio viene bloccato
+         in silenzio (vedi initForm in dossier.js). -->
+    <div class="form-group hp-field" aria-hidden="true">
+      <label for="fieldWebsite">Sito web</label>
+      <input type="text" id="fieldWebsite" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary" id="btnCandidatura">Invia candidatura</button>
+    </div>
+    <div id="formFeedback" class="form-feedback" aria-live="polite"></div>
+  </form>
+</section>
+
+<section class="dossier-back reveal">
+  <a href="../../index.html#experiences" class="dossier-back-link">← Torna alle experiences</a>
+</section>
+
+<footer class="footer" id="contact">
+  <span>OECHSLIN OUTDOOR</span>
+  <nav class="footer-nav">
+    <a href="../../index.html#experiences">Experiences</a>
+    <a href="../../index.html#map">Mappa</a>
+    <a href="../../index.html#field-notes">Field Notes</a>
+    <a href="../../index.html#about">About</a>
+  </nav>
+  <span>© 2026</span>
+</footer>
+
+<script src="data.js"></script>
+<script src="../../dossier.js"></script>
+</body>
+</html>
